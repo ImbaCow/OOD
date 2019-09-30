@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков\Beverage">
+      <UniqueIdentifier>{3e6d3ca7-a17d-4d6a-bfcc-e2e62b716686}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Condiment">
+      <UniqueIdentifier>{0e5c8f2f-913d-4f6a-8497-7cde41747d20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Beverage\Coffee">
+      <UniqueIdentifier>{9481300a-10db-4f1a-9213-1aebaaf43daf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Beverage\Tea">
+      <UniqueIdentifier>{b1c24f43-40de-4e5b-8ced-112fbb3a7f9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Beverage\Milkshake">
+      <UniqueIdentifier>{df6d0007-02c5-4ea4-a85e-4a2f81bc5432}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="IBeverage.h">
+      <Filter>Файлы заголовков\Beverage</Filter>
+    </ClInclude>
+    <ClInclude Include="CBeverage.h">
+      <Filter>Файлы заголовков\Beverage</Filter>
+    </ClInclude>
+    <ClInclude Include="CCoffee.h">
+      <Filter>Файлы заголовков\Beverage\Coffee</Filter>
+    </ClInclude>
+    <ClInclude Include="Cappuccino.h">
+      <Filter>Файлы заголовков\Beverage\Coffee</Filter>
+    </ClInclude>
+    <ClInclude Include="CLatte.h">
+      <Filter>Файлы заголовков\Beverage\Coffee</Filter>
+    </ClInclude>
+    <ClInclude Include="CTea.h">
+      <Filter>Файлы заголовков\Beverage\Tea</Filter>
+    </ClInclude>
+    <ClInclude Include="CMilkshake.h">
+      <Filter>Файлы заголовков\Beverage\Milkshake</Filter>
+    </ClInclude>
+    <ClInclude Include="CCondimentDecorator.h">
+      <Filter>Файлы заголовков\Condiment</Filter>
+    </ClInclude>
+    <ClInclude Include="CCinnamon.h">
+      <Filter>Файлы заголовков\Condiment</Filter>
+    </ClInclude>
+    <ClInclude Include="CLemon.h">
+      <Filter>Файлы заголовков\Condiment</Filter>
+    </ClInclude>
+    <ClInclude Include="CIceCubes.h">
+      <Filter>Файлы заголовков\Condiment</Filter>
+    </ClInclude>
+    <ClInclude Include="CSyrup.h">
+      <Filter>Файлы заголовков\Condiment</Filter>
+    </ClInclude>
+    <ClInclude Include="CChocolateCrumbs.h">
+      <Filter>Файлы заголовков\Condiment</Filter>
+    </ClInclude>
+    <ClInclude Include="CCoconutFlakes.h">
+      <Filter>Файлы заголовков\Condiment</Filter>
+    </ClInclude>
+    <ClInclude Include="CDoublePortion.h">
+      <Filter>Файлы заголовков\Condiment</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CDoublePortion.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CCondimentDecorator.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CCoconutFlakes.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CChocolateCrumbs.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CCinnamon.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CIceCubes.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CLemon.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CSyrup.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CBeverage.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CTea.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CMilkshake.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CLatte.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CCoffee.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Cappuccino.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков\WeatherDataPro">
+      <UniqueIdentifier>{c865656b-5981-4544-b2d0-22a8ab62ab9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\WeatherData">
+      <UniqueIdentifier>{9080b05c-c86b-48d3-ac38-026243387aca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Value">
+      <UniqueIdentifier>{d38905f8-1e21-49ac-b4a2-e5a138ffce94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Value">
+      <UniqueIdentifier>{c5501d8e-6c86-4407-b810-ebdc4ad5a3fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\WeatherData">
+      <UniqueIdentifier>{2ad65ab4-2d96-4598-9dd7-6a7fe60e34bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\WeatherDataPro">
+      <UniqueIdentifier>{0ad5ca1d-16eb-466e-8a26-c9b1bc80189e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="CObservable.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="IObservable.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="WeatherStationDuo.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="CWeatherDataPro.h">
+      <Filter>Файлы заголовков\WeatherDataPro</Filter>
+    </ClInclude>
+    <ClInclude Include="CDisplayPro.h">
+      <Filter>Файлы заголовков\WeatherDataPro</Filter>
+    </ClInclude>
+    <ClInclude Include="CStatsValue.h">
+      <Filter>Файлы заголовков\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="CDisplay.h">
+      <Filter>Файлы заголовков\WeatherData</Filter>
+    </ClInclude>
+    <ClInclude Include="CStatsDisplay.h">
+      <Filter>Файлы заголовков\WeatherData</Filter>
+    </ClInclude>
+    <ClInclude Include="CWeatherData.h">
+      <Filter>Файлы заголовков\WeatherData</Filter>
+    </ClInclude>
+    <ClInclude Include="CStatsDisplayPro.h">
+      <Filter>Файлы заголовков\WeatherDataPro</Filter>
+    </ClInclude>
+    <ClInclude Include="CAngleStatsValue.h">
+      <Filter>Файлы заголовков\Value</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="WeatherStationDuo.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CAngleStatsValue.cpp">
+      <Filter>Исходные файлы\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="CStatsValue.cpp">
+      <Filter>Исходные файлы\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="CDisplay.cpp">
+      <Filter>Исходные файлы\WeatherData</Filter>
+    </ClCompile>
+    <ClCompile Include="CStatsDisplay.cpp">
+      <Filter>Исходные файлы\WeatherData</Filter>
+    </ClCompile>
+    <ClCompile Include="CWeatherData.cpp">
+      <Filter>Исходные файлы\WeatherData</Filter>
+    </ClCompile>
+    <ClCompile Include="CDisplayPro.cpp">
+      <Filter>Исходные файлы\WeatherDataPro</Filter>
+    </ClCompile>
+    <ClCompile Include="CStatsDisplayPro.cpp">
+      <Filter>Исходные файлы\WeatherDataPro</Filter>
+    </ClCompile>
+    <ClCompile Include="CWeatherDataPro.cpp">
+      <Filter>Исходные файлы\WeatherDataPro</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

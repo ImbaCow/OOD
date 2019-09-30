@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков\InputStream">
+      <UniqueIdentifier>{07ab9355-6c6e-46f8-a16c-69d0e89fdc16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\OutputStream">
+      <UniqueIdentifier>{c2f64d08-744c-4aaa-b1f6-1848d553d3da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Encrypt">
+      <UniqueIdentifier>{d9ec94d4-3375-4c96-8fff-5846cb854c9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\InputStream\Decorator">
+      <UniqueIdentifier>{137cd8b6-51ec-4c78-8d70-d5449befeed2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\OutputStream\Decorator">
+      <UniqueIdentifier>{bb41032c-462e-4696-a570-d37fbd5d6f0c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="CFileInputStream.h">
+      <Filter>Файлы заголовков\InputStream</Filter>
+    </ClInclude>
+    <ClInclude Include="CMemoryInputStream.h">
+      <Filter>Файлы заголовков\InputStream</Filter>
+    </ClInclude>
+    <ClInclude Include="IInputStream.h">
+      <Filter>Файлы заголовков\InputStream</Filter>
+    </ClInclude>
+    <ClInclude Include="CFileOutputStream.h">
+      <Filter>Файлы заголовков\OutputStream</Filter>
+    </ClInclude>
+    <ClInclude Include="IOutputStream.h">
+      <Filter>Файлы заголовков\OutputStream</Filter>
+    </ClInclude>
+    <ClInclude Include="CMemoryOutputStream.h">
+      <Filter>Файлы заголовков\OutputStream</Filter>
+    </ClInclude>
+    <ClInclude Include="CInputStream.h">
+      <Filter>Файлы заголовков\InputStream</Filter>
+    </ClInclude>
+    <ClInclude Include="COutputStream.h">
+      <Filter>Файлы заголовков\OutputStream</Filter>
+    </ClInclude>
+    <ClInclude Include="CDecompressInputStreamDecorator.h">
+      <Filter>Файлы заголовков\InputStream\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="CDecryptInputStreamDecorator.h">
+      <Filter>Файлы заголовков\InputStream\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="CInputStreamDecorator.h">
+      <Filter>Файлы заголовков\InputStream\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="CCompressOutputStreamDecorator.h">
+      <Filter>Файлы заголовков\OutputStream\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="CEncryptOutputStreamDecorator.h">
+      <Filter>Файлы заголовков\OutputStream\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="COutputStreamDecorator.h">
+      <Filter>Файлы заголовков\OutputStream\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplaceEncryptor.h">
+      <Filter>Файлы заголовков\Encrypt</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CFileInputStream.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CFileOutputStream.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CMemoryInputStream.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CMemoryOutputStream.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CInputStream.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="COutputStream.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CEncryptOutputStreamDecorator.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CCompressOutputStreamDecorator.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CDecompressInputStreamDecorator.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CDecryptInputStreamDecorator.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CInputStreamDecorator.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="COutputStreamDecorator.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplaceEncryptor.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
