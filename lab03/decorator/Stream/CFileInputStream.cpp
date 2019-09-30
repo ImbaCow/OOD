@@ -2,7 +2,7 @@
 #include "CFileInputStream.h"
 
 CFileInputStream::CFileInputStream(const std::string& fileName)
-	: m_file(fileName)
+	: m_file(fileName, std::ios::binary)
 	, CInputStream(m_file)
 {
 	if (!m_file.is_open())

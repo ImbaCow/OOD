@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include "pch.h"
 #include "CMemoryInputStream.h"
+#include "CFileInputStream.h"
+#include "CFileOutputStream.h"
 #include "CMemoryOutputStream.h"
 #include "CDecompressInputStreamDecorator.h"
 #include "CCompressOutputStreamDecorator.h"
@@ -81,6 +83,19 @@ BOOST_AUTO_TEST_SUITE(TestStream)
 			stream.reset();
 			BOOST_CHECK_EQUAL(string("\3") + "=\1v\1w" + "\3" + "0\1" + "9", oss.str());
 		}
+		BOOST_AUTO_TEST_CASE(TestWriteOverflowBlock)
+		{
+			ostringstream oss;
+			unique_ptr<IOutputStream> stream = make_unique<CMemoryOutputStream>(oss);
+			stream = make_unique<CCompressOutputStreamDecorator>(move(stream));
+
+			for (size_t i = 0; i < 255; ++i)
+			{
+				stream->WriteByte('v');
+			}
+			stream.reset();
+			BOOST_CHECK(0xffffffff == oss.str()[0]);
+		}
 	BOOST_AUTO_TEST_SUITE_END()
 
 	BOOST_AUTO_TEST_SUITE(TestDecompressInputStream)
@@ -159,6 +174,60 @@ BOOST_AUTO_TEST_SUITE(TestStream)
 			BOOST_CHECK(!istr->IsEOF());
 			istr->ReadByte();
 			BOOST_CHECK(istr->IsEOF());
+			delete[] buff;
+		}
+	BOOST_AUTO_TEST_SUITE_END()
+
+	BOOST_AUTO_TEST_SUITE(TestFileStream)
+		BOOST_AUTO_TEST_CASE(TestWrite)
+		{
+			unique_ptr<IOutputStream> ostr = make_unique<CFileOutputStream>("test.txt");
+
+			ostr->WriteByte('0');
+			ostr->WriteBlock("000999888", 9);
+			ostr.reset();
+
+			unique_ptr<IInputStream> istr = make_unique<CFileInputStream>("test.txt");
+			BOOST_CHECK_EQUAL('0', istr->ReadByte());
+			char* buff = new char[9];
+			BOOST_CHECK_EQUAL(9, istr->ReadBlock(buff, 9));
+			BOOST_CHECK_EQUAL("000999888", string(buff, 9));
+			delete[] buff;
+		}
+
+		BOOST_AUTO_TEST_CASE(TestWriteCompress)
+		{
+			unique_ptr<IOutputStream> ostr = make_unique<CFileOutputStream>("test.txt");
+			ostr = make_unique<CCompressOutputStreamDecorator>(move(ostr));
+
+			ostr->WriteByte('0');
+			ostr->WriteBlock("000999888", 9);
+			ostr.reset();
+
+			unique_ptr<IInputStream> istr = make_unique<CFileInputStream>("test.txt");
+			istr = make_unique<CDecompressInputStreamDecorator>(move(istr));
+			BOOST_CHECK_EQUAL('0', istr->ReadByte());
+			char* buff = new char[9];
+			BOOST_CHECK_EQUAL(9, istr->ReadBlock(buff, 9));
+			BOOST_CHECK_EQUAL("000999888", string(buff, 9));
+			delete[] buff;
+		}
+
+		BOOST_AUTO_TEST_CASE(TestWriteCrypt)
+		{
+			unique_ptr<IOutputStream> ostr = make_unique<CFileOutputStream>("test.txt");
+			ostr = make_unique<CEncryptOutputStreamDecorator>(move(ostr), 321);
+
+			ostr->WriteByte('0');
+			ostr->WriteBlock("000999888", 9);
+			ostr.reset();
+
+			unique_ptr<IInputStream> istr = make_unique<CFileInputStream>("test.txt");
+			istr = make_unique<CDecryptInputStreamDecorator>(move(istr), 321);
+			BOOST_CHECK_EQUAL('0', istr->ReadByte());
+			char* buff = new char[9];
+			BOOST_CHECK_EQUAL(9, istr->ReadBlock(buff, 9));
+			BOOST_CHECK_EQUAL("000999888", string(buff, 9));
 			delete[] buff;
 		}
 	BOOST_AUTO_TEST_SUITE_END()

@@ -78,6 +78,15 @@
     <ClInclude Include="CDoublePortion.h">
       <Filter>Файлы заголовков\Condiment</Filter>
     </ClInclude>
+    <ClInclude Include="СLiquor.h">
+      <Filter>Файлы заголовков\Condiment</Filter>
+    </ClInclude>
+    <ClInclude Include="CCream.h">
+      <Filter>Файлы заголовков\Condiment</Filter>
+    </ClInclude>
+    <ClInclude Include="CChocolate.h">
+      <Filter>Файлы заголовков\Condiment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -126,6 +135,15 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Cappuccino.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="СLiquor.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CCream.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CChocolate.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,7 +3,7 @@
 
 CFileOutputStream::CFileOutputStream(const std::string& fileName)
 	: COutputStream(m_file) 
-	, m_file(fileName)
+	, m_file(fileName, std::ios::binary)
 {
 	if (!m_file.is_open())
 	{

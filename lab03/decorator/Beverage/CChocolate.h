@@ -5,23 +5,13 @@
 class CChocolate : public CCondimentDecorator
 {
 public:
-	CChocolate(IBeveragePtr&& beverage, size_t quantity = 1)
-		: CCondimentDecorator(move(beverage))
-		, m_quantity(std::min(quantity, MAX_SLICES_COUNT))
-	{
-	}
+	CChocolate(IBeveragePtr&& beverage, size_t quantity = 1);
 
 	static const size_t MAX_SLICES_COUNT = 5;
 
 protected:
-	double GetCondimentCost() const override
-	{
-		return 10 * m_quantity;
-	}
-	std::string GetCondimentDescription() const override
-	{
-		return "Chocolate x " + std::to_string(m_quantity);
-	}
+	double GetCondimentCost() const override;
+	std::string GetCondimentDescription() const override;
 
 private:
 	unsigned m_quantity;

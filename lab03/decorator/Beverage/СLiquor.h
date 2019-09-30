@@ -11,23 +11,11 @@ enum class LiquorType
 class ÑLiquor : public CCondimentDecorator
 {
 public:
-	ÑLiquor(IBeveragePtr&& beverage, LiquorType type = LiquorType::Chocolate)
-		: CCondimentDecorator(move(beverage))
-		, m_type(type)
-	{
-	}
+	ÑLiquor(IBeveragePtr&& beverage, LiquorType type = LiquorType::Chocolate);
 
 protected:
-	double GetCondimentCost() const override
-	{
-		return 50;
-	}
-
-	std::string GetCondimentDescription() const override
-	{
-		return std::string(m_type == LiquorType::Nuts ? "Nuts" : "Chocolate")
-			+ " liquor";
-	}
+	double GetCondimentCost() const override;
+	std::string GetCondimentDescription() const override;
 
 private:
 	LiquorType m_type;
