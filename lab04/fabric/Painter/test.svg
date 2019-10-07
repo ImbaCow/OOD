@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100px" height="100px" xmlns="http://www.w3.org/2000/svg" version="1.1" >
+	<polyline points="50,10 70,70 " fill="transparent" stroke-width="2" stroke="rgb(0,128,0)" />
+	<polyline points="70,70 30,70 " fill="transparent" stroke-width="2" stroke="rgb(0,128,0)" />
+	<polyline points="30,70 50,10 " fill="transparent" stroke-width="2" stroke="rgb(0,128,0)" />
+	<polyline points="50,65 39.3934,60.6066 " fill="transparent" stroke-width="2" stroke="rgb(255,0,0)" />
+	<polyline points="39.3934,60.6066 35,50 " fill="transparent" stroke-width="2" stroke="rgb(255,0,0)" />
+	<polyline points="35,50 39.3934,39.3934 " fill="transparent" stroke-width="2" stroke="rgb(255,0,0)" />
+	<polyline points="39.3934,39.3934 50,35 " fill="transparent" stroke-width="2" stroke="rgb(255,0,0)" />
+	<polyline points="50,35 60.6066,39.3934 " fill="transparent" stroke-width="2" stroke="rgb(255,0,0)" />
+	<polyline points="60.6066,39.3934 65,50 " fill="transparent" stroke-width="2" stroke="rgb(255,0,0)" />
+	<polyline points="65,50 60.6066,60.6066 " fill="transparent" stroke-width="2" stroke="rgb(255,0,0)" />
+	<polyline points="60.6066,60.6066 50,65 " fill="transparent" stroke-width="2" stroke="rgb(255,0,0)" />
+</svg>
