@@ -169,6 +169,7 @@
     <ClInclude Include="CHtmlDocument.h" />
     <ClInclude Include="CReplaceTextCommand.h" />
     <ClInclude Include="CResizeImageCommand.h" />
+    <ClInclude Include="ExecuteCommandFunc.h" />
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="IDocument.h" />
     <ClInclude Include="IImage.h" />

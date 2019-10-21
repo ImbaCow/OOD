@@ -2,8 +2,8 @@
 #include "CParagraph.h"
 #include "CReplaceTextCommand.h"
 
-CParagraph::CParagraph(CCommandHistory& history, const std::string& text)
-	: m_history(history)
+CParagraph::CParagraph(ExecuteCommandFunc executeCommandFunc, const std::string& text)
+	: m_executeCommandFunc(executeCommandFunc)
 	, m_text(text)
 {
 }
@@ -16,5 +16,5 @@ std::string CParagraph::GetText() const
 void CParagraph::SetText(const std::string& text)
 {
 	std::unique_ptr<ICommand> command = std::make_unique<CReplaceTextCommand>(m_text, text);
-	m_history.ExecuteCommand(std::move(command));
+	m_executeCommandFunc(std::move(command));
 }

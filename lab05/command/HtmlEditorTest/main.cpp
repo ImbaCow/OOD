@@ -414,6 +414,16 @@ BOOST_AUTO_TEST_SUITE(HtmlEditorTest)
 				BOOST_CHECK(fs::exists(dir.GetDirPath() / "index.html"));
 				BOOST_CHECK_EQUAL(GetFileContent(dir.GetDirPath() / "index.html"), "<html><head><title>html save test title</title></head><body></body></html>");
 			}
+			BOOST_AUTO_TEST_CASE(TestSaveTitleEscape)
+			{
+				CHtmlDocument doc;
+				doc.SetTitle("<p>text&\"'</p>");
+				TestDir dir;
+
+				doc.Save(dir.GetDirPath());
+				BOOST_CHECK(fs::exists(dir.GetDirPath() / "index.html"));
+				BOOST_CHECK_EQUAL(GetFileContent(dir.GetDirPath() / "index.html"), "<html><head><title>&lt;p&gt;text&amp;&quot;&apos;&lt;/p&gt;</title></head><body></body></html>");
+			}
 			BOOST_AUTO_TEST_CASE(TestSaveImage)
 			{
 				CHtmlDocument doc;
@@ -589,7 +599,8 @@ BOOST_AUTO_TEST_SUITE(HtmlEditorTest)
 		BOOST_AUTO_TEST_CASE(TestInsertDocItemCommand)
 		{
 			CCommandHistory history;
-			shared_ptr<IParagraph> paragraphPtr = make_shared<CParagraph>(history, "test text");
+			ExecuteCommandFunc func = std::bind(&CCommandHistory::ExecuteCommand, &history, std::placeholders::_1);
+			shared_ptr<IParagraph> paragraphPtr = make_shared<CParagraph>(func, "test text");
 			CDocumentItem item(paragraphPtr);
 			vector<CDocumentItem> docItemArr;
 			CInsertDocumentItemCommand command(item, docItemArr);
@@ -609,7 +620,8 @@ BOOST_AUTO_TEST_SUITE(HtmlEditorTest)
 		BOOST_AUTO_TEST_CASE(TestInsertDocItemCommandError)
 		{
 			CCommandHistory history;
-			shared_ptr<IParagraph> paragraphPtr = make_shared<CParagraph>(history, "test text");
+			ExecuteCommandFunc func = std::bind(&CCommandHistory::ExecuteCommand, &history, std::placeholders::_1);
+			shared_ptr<IParagraph> paragraphPtr = make_shared<CParagraph>(func, "test text");
 			CDocumentItem item(paragraphPtr);
 			vector<CDocumentItem> docItemArr;
 			CInsertDocumentItemCommand command(item, docItemArr, 1);
@@ -619,7 +631,8 @@ BOOST_AUTO_TEST_SUITE(HtmlEditorTest)
 		BOOST_AUTO_TEST_CASE(TestDeleteDocItemCommand)
 		{
 			CCommandHistory history;
-			shared_ptr<IParagraph> paragraphPtr = make_shared<CParagraph>(history, "test text");
+			ExecuteCommandFunc func = std::bind(&CCommandHistory::ExecuteCommand, &history, std::placeholders::_1);
+			shared_ptr<IParagraph> paragraphPtr = make_shared<CParagraph>(func, "test text");
 			CDocumentItem item(paragraphPtr);
 			vector<CDocumentItem> docItemArr{ item };
 			CDeleteDocumentItemCommand command(docItemArr, 0);
@@ -639,7 +652,8 @@ BOOST_AUTO_TEST_SUITE(HtmlEditorTest)
 		BOOST_AUTO_TEST_CASE(TestDeleteDocItemCommandError)
 		{
 			CCommandHistory history;
-			shared_ptr<IParagraph> paragraphPtr = make_shared<CParagraph>(history, "test text");
+			ExecuteCommandFunc func = std::bind(&CCommandHistory::ExecuteCommand, &history, std::placeholders::_1);
+			shared_ptr<IParagraph> paragraphPtr = make_shared<CParagraph>(func, "test text");
 			CDocumentItem item(paragraphPtr);
 			vector<CDocumentItem> docItemArr{ item };
 			CDeleteDocumentItemCommand command(docItemArr, 1);

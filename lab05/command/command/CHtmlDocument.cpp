@@ -6,10 +6,12 @@
 #include "CDeleteDocumentItemCommand.h"
 #include "CReplaceTextCommand.h"
 #include "CResizeImageCommand.h"
+#include "ExecuteCommandFunc.h"
 
 std::shared_ptr<IParagraph> CHtmlDocument::InsertParagraph(const std::string& text, std::optional<size_t> position)
 {
-	std::shared_ptr<IParagraph> paragraphPtr = std::make_shared<CParagraph>(m_history, text);
+ 	ExecuteCommandFunc func = std::bind(&CCommandHistory::ExecuteCommand, &m_history, std::placeholders::_1);
+	std::shared_ptr<IParagraph> paragraphPtr = std::make_shared<CParagraph>(func, text);
 	CDocumentItem documentItem(paragraphPtr);
 
 	std::unique_ptr<ICommand> commandPtr = std::make_unique<CInsertDocumentItemCommand>(documentItem, m_documentItemArr, position);
@@ -44,7 +46,8 @@ Path GetCopiedImagePath(const Path& oldPath)
 
 std::shared_ptr<IImage> CHtmlDocument::InsertImage(const Path& path, int width, int height, std::optional<size_t> position)
 {
-	std::shared_ptr<IImage> imagePtr = std::make_shared<CImage>(m_history, GetCopiedImagePath(path), width, height);
+	ExecuteCommandFunc func = std::bind(&CCommandHistory::ExecuteCommand, &m_history, std::placeholders::_1);
+	std::shared_ptr<IImage> imagePtr = std::make_shared<CImage>(func, GetCopiedImagePath(path), width, height);
 	CDocumentItem documentItem(imagePtr);
 	
 	std::unique_ptr<ICommand> commandPtr = std::make_unique<CInsertDocumentItemCommand>(documentItem, m_documentItemArr, position);
@@ -161,7 +164,7 @@ std::string ParagrapgToHtml(std::shared_ptr<const IParagraph> paragraphPtr)
 
 std::string OpenHtml(const std::string& title)
 {
-	std::string titleTag = title.size() != 0 ? "<title>" + title + "</title>" : "";
+	std::string titleTag = title.size() != 0 ? "<title>" + ExcapeHtml(title) + "</title>" : "";
 	return "<html><head>" + titleTag + "</head><body>";
 }
 
