@@ -13,6 +13,7 @@ BOOST_AUTO_TEST_SUITE(TestObjectAdapter)
 		ostringstream out;
 		modern_graphics_lib::CModernGraphicsRenderer renderer(out);
 		CModernCanvasAdapter adapter(renderer);
+		renderer.BeginDraw();
 
 		adapter.LineTo(1, 1);
 		renderer.EndDraw();
@@ -29,6 +30,7 @@ BOOST_AUTO_TEST_SUITE(TestObjectAdapter)
 		ostringstream out;
 		modern_graphics_lib::CModernGraphicsRenderer renderer(out);
 		CModernCanvasAdapter adapter(renderer);
+		renderer.BeginDraw();
 
 		adapter.SetColor(0xFF00FF00);
 		adapter.LineTo(1, 1);
@@ -53,6 +55,7 @@ BOOST_AUTO_TEST_SUITE(TestObjectAdapter)
 		modern_graphics_lib::CModernGraphicsRenderer renderer(out);
 		CModernCanvasAdapter adapter(renderer);
 		shape_drawing_lib::CCanvasPainter painter(adapter);
+		renderer.BeginDraw();
 
 		shape_drawing_lib::CTriangle triangle({ 10, 15 }, { 100, 200 }, { 150, 250 }, 0x80808080);
 		shape_drawing_lib::CRectangle rectangle({ 30, 40 }, 18, 24, 0xFFFFFFFF);

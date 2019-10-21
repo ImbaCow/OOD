@@ -29,6 +29,7 @@ void PaintPictureOnModernGraphicsRenderer()
 	modern_graphics_lib::CModernGraphicsRenderer renderer(cout);
 	CModernCanvasAdapter adapter(renderer);
 	shape_drawing_lib::CCanvasPainter painter(adapter);
+	renderer.BeginDraw();
 	PaintPicture(painter);
 }
 } // namespace app

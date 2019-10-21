@@ -12,6 +12,7 @@ BOOST_AUTO_TEST_SUITE(TestObjectAdapter)
 	{
 		ostringstream out;
 		CModernCanvasAdapter adapter(out);
+		adapter.BeginDraw();
 
 		adapter.LineTo(1, 1);
 		adapter.EndDraw();
@@ -27,6 +28,7 @@ BOOST_AUTO_TEST_SUITE(TestObjectAdapter)
 	{
 		ostringstream out;
 		CModernCanvasAdapter adapter(out);
+		adapter.BeginDraw();
 
 		adapter.SetColor(0xFF00FF00);
 		adapter.LineTo(1, 1);
@@ -50,6 +52,7 @@ BOOST_AUTO_TEST_SUITE(TestObjectAdapter)
 		ostringstream out;
 		CModernCanvasAdapter adapter(out);
 		shape_drawing_lib::CCanvasPainter painter(adapter);
+		adapter.BeginDraw();
 
 		shape_drawing_lib::CTriangle triangle({ 10, 15 }, { 100, 200 }, { 150, 250 }, 0x80808080);
 		shape_drawing_lib::CRectangle rectangle({ 30, 40 }, 18, 24, 0xFFFFFFFF);
