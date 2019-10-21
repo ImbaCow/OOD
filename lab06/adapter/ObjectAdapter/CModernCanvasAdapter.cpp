@@ -9,7 +9,6 @@ CModernCanvasAdapter::CModernCanvasAdapter(modern_graphics_lib::CModernGraphicsR
 	, m_point(BASE_POINT)
 	, m_color(BASE_COLOR)
 {
-	m_renderer.BeginDraw();
 }
 
 void CModernCanvasAdapter::MoveTo(int x, int y)

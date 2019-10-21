@@ -13,6 +13,7 @@ BOOST_AUTO_TEST_SUITE(TestObjectAdapter)
 		ostringstream out;
 		modern_graphics_lib::CModernGraphicsRenderer renderer(out);
 		CModernCanvasAdapter adapter(renderer);
+		renderer.BeginDraw();
 
 		adapter.LineTo(1, 1);
 		renderer.EndDraw();
@@ -29,6 +30,7 @@ BOOST_AUTO_TEST_SUITE(TestObjectAdapter)
 		ostringstream out;
 		modern_graphics_lib::CModernGraphicsRenderer renderer(out);
 		CModernCanvasAdapter adapter(renderer);
+		renderer.BeginDraw();
 
 		adapter.SetColor(0xFF00FF00);
 		adapter.LineTo(1, 1);
@@ -53,6 +55,7 @@ BOOST_AUTO_TEST_SUITE(TestObjectAdapter)
 		modern_graphics_lib::CModernGraphicsRenderer renderer(out);
 		CModernCanvasAdapter adapter(renderer);
 		shape_drawing_lib::CCanvasPainter painter(adapter);
+		renderer.BeginDraw();
 
 		shape_drawing_lib::CTriangle triangle({ 10, 15 }, { 100, 200 }, { 150, 250 }, 0x80808080);
 		shape_drawing_lib::CRectangle rectangle({ 30, 40 }, 18, 24, 0xFFFFFFFF);
@@ -87,7 +90,6 @@ BOOST_AUTO_TEST_SUITE(TestObjectAdapter)
 )");
 	}
 
-
 	struct CoutRedirect
 	{
 		CoutRedirect(std::streambuf* new_buffer)
@@ -106,17 +108,17 @@ BOOST_AUTO_TEST_SUITE(TestObjectAdapter)
 	BOOST_AUTO_TEST_CASE(TestUseOldCanvas)
 	{
 		ostringstream out;
-		CoutRedirect guard(out.rdbuf());
-		graphics_lib::CCanvas simpleCanvas;
-		shape_drawing_lib::CCanvasPainter painter(simpleCanvas);
+		{
+			CoutRedirect guard(out.rdbuf());
+			graphics_lib::CCanvas simpleCanvas;
+			shape_drawing_lib::CCanvasPainter painter(simpleCanvas);
 
-		shape_drawing_lib::CTriangle triangle({ 10, 15 }, { 100, 200 }, { 150, 250 }, 0x80808080);
-		shape_drawing_lib::CRectangle rectangle({ 30, 40 }, 18, 24, 0xFFFFFFFF);
+			shape_drawing_lib::CTriangle triangle({ 10, 15 }, { 100, 200 }, { 150, 250 }, 0x80808080);
+			shape_drawing_lib::CRectangle rectangle({ 30, 40 }, 18, 24, 0xFFFFFFFF);
 
-		painter.Draw(triangle);
-		painter.Draw(rectangle);
-
-		guard.~CoutRedirect();
+			painter.Draw(triangle);
+			painter.Draw(rectangle);
+		}
 		BOOST_CHECK_EQUAL(out.str(), R"(SetColor (#80808080)
 MoveTo (10, 15)
 LineTo (100, 200)

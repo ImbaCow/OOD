@@ -9,7 +9,6 @@ CModernCanvasAdapter::CModernCanvasAdapter(std::ostream& out)
 	, m_point(BASE_POINT)
 	, m_color(BASE_COLOR)
 {
-	BeginDraw();
 }
 
 void CModernCanvasAdapter::MoveTo(int x, int y)

@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 
 class CModernCanvasAdapter : public graphics_lib::ICanvas
 {
