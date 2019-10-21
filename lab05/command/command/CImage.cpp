@@ -2,8 +2,8 @@
 #include "CImage.h"
 #include "CResizeImageCommand.h"
 
-CImage::CImage(CCommandHistory& history, const Path& path, int width, int height)
-	: m_history(history)
+CImage::CImage(ExecuteCommandFunc executeCommandFunc, const Path& path, int width, int height)
+	: m_executeCommandFunc(executeCommandFunc)
 	, m_path(path)
 	, m_width(width)
 	, m_height(height)
@@ -33,5 +33,5 @@ int CImage::GetHeight() const
 void CImage::Resize(int width, int height)
 {
 	std::unique_ptr<ICommand> commandPtr = std::make_unique<CResizeImageCommand>(m_width, m_height, width, height);
-	m_history.ExecuteCommand(std::move(commandPtr));
+	m_executeCommandFunc(std::move(commandPtr));
 }
