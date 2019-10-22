@@ -34,21 +34,20 @@ BOOST_AUTO_TEST_SUITE(PainterTest)
 			ComparePair(shape.GetVertex2(), { 3, 4 });
 			ComparePair(shape.GetVertex3(), { 5, 6 });
 
-			std::shared_ptr<TestCanvas> canvas = std::make_shared<TestCanvas>();
-			std::shared_ptr<ICanvas> canvasBase = canvas;
-			shape.Draw(canvasBase);
+			TestCanvas canvas;
+			shape.Draw(canvas);
 
-			BOOST_CHECK_EQUAL(canvas->m_color, Color::Green);
-			BOOST_CHECK_EQUAL(canvas->m_lineArr.size(), 3u);
+			BOOST_CHECK_EQUAL(canvas.m_color, Color::Green);
+			BOOST_CHECK_EQUAL(canvas.m_lineArr.size(), 3u);
 
-			ComparePair(canvas->m_lineArr[0].first, { 1, 2 });
-			ComparePair(canvas->m_lineArr[0].second, { 3, 4 });
+			ComparePair(canvas.m_lineArr[0].first, { 1, 2 });
+			ComparePair(canvas.m_lineArr[0].second, { 3, 4 });
 
-			ComparePair(canvas->m_lineArr[1].first, { 3, 4 });
-			ComparePair(canvas->m_lineArr[1].second, { 5, 6 });
+			ComparePair(canvas.m_lineArr[1].first, { 3, 4 });
+			ComparePair(canvas.m_lineArr[1].second, { 5, 6 });
 
-			ComparePair(canvas->m_lineArr[2].first, { 5, 6 });
-			ComparePair(canvas->m_lineArr[2].second, { 1, 2 });
+			ComparePair(canvas.m_lineArr[2].first, { 5, 6 });
+			ComparePair(canvas.m_lineArr[2].second, { 1, 2 });
 		}
 		BOOST_AUTO_TEST_CASE(TestEllipse)
 		{
@@ -59,17 +58,16 @@ BOOST_AUTO_TEST_SUITE(PainterTest)
 			BOOST_CHECK_CLOSE(shape.GetWidth(), 3, EPSILION);
 			ComparePair(shape.GetLeftTop(), { 1, 2 });
 
-			std::shared_ptr<TestCanvas> canvas = std::make_shared<TestCanvas>();
-			std::shared_ptr<ICanvas> canvasBase = canvas;
-			shape.Draw(canvasBase);
+			TestCanvas canvas;
+			shape.Draw(canvas);
 
-			BOOST_CHECK_EQUAL(canvas->m_color, Color::Green);
-			BOOST_CHECK_EQUAL(canvas->m_lineArr.size(), 0u);
-			BOOST_CHECK_EQUAL(canvas->m_ellipseArr.size(), 1u);
+			BOOST_CHECK_EQUAL(canvas.m_color, Color::Green);
+			BOOST_CHECK_EQUAL(canvas.m_lineArr.size(), 0u);
+			BOOST_CHECK_EQUAL(canvas.m_ellipseArr.size(), 1u);
 
-			BOOST_CHECK_CLOSE(canvas->m_ellipseArr[0].height, 4, EPSILION);
-			BOOST_CHECK_CLOSE(canvas->m_ellipseArr[0].width, 3, EPSILION);
-			ComparePair(canvas->m_ellipseArr[0].leftTop, { 1, 2 });
+			BOOST_CHECK_CLOSE(canvas.m_ellipseArr[0].height, 4, EPSILION);
+			BOOST_CHECK_CLOSE(canvas.m_ellipseArr[0].width, 3, EPSILION);
+			ComparePair(canvas.m_ellipseArr[0].leftTop, { 1, 2 });
 		}
 		BOOST_AUTO_TEST_CASE(TestRectangle)
 		{
@@ -79,25 +77,24 @@ BOOST_AUTO_TEST_SUITE(PainterTest)
 			ComparePair(shape.GetLeftTop(), { 1, 2 });
 			ComparePair(shape.GetRightBottom(), { 3, 4 });
 
-			std::shared_ptr<TestCanvas> canvas = std::make_shared<TestCanvas>();
-			std::shared_ptr<ICanvas> canvasBase = canvas;
-			shape.Draw(canvasBase);
+			TestCanvas canvas;
+			shape.Draw(canvas);
 
-			BOOST_CHECK_EQUAL(canvas->m_color, Color::Black);
-			BOOST_CHECK_EQUAL(canvas->m_lineArr.size(), 4u);
-			BOOST_CHECK_EQUAL(canvas->m_ellipseArr.size(), 0u);
+			BOOST_CHECK_EQUAL(canvas.m_color, Color::Black);
+			BOOST_CHECK_EQUAL(canvas.m_lineArr.size(), 4u);
+			BOOST_CHECK_EQUAL(canvas.m_ellipseArr.size(), 0u);
 
-			ComparePair(canvas->m_lineArr[0].first, { 1, 2 });
-			ComparePair(canvas->m_lineArr[0].second, { 3, 2 });
+			ComparePair(canvas.m_lineArr[0].first, { 1, 2 });
+			ComparePair(canvas.m_lineArr[0].second, { 3, 2 });
 
-			ComparePair(canvas->m_lineArr[1].first, { 1, 2 });
-			ComparePair(canvas->m_lineArr[1].second, { 1, 4 });
+			ComparePair(canvas.m_lineArr[1].first, { 1, 2 });
+			ComparePair(canvas.m_lineArr[1].second, { 1, 4 });
 
-			ComparePair(canvas->m_lineArr[2].first, { 3, 2 });
-			ComparePair(canvas->m_lineArr[2].second, { 3, 4 });
+			ComparePair(canvas.m_lineArr[2].first, { 3, 2 });
+			ComparePair(canvas.m_lineArr[2].second, { 3, 4 });
 
-			ComparePair(canvas->m_lineArr[3].first, { 1, 4 });
-			ComparePair(canvas->m_lineArr[3].second, { 3, 4 });
+			ComparePair(canvas.m_lineArr[3].first, { 1, 4 });
+			ComparePair(canvas.m_lineArr[3].second, { 3, 4 });
 		}
 		BOOST_AUTO_TEST_CASE(TestPolygon)
 		{
@@ -108,12 +105,11 @@ BOOST_AUTO_TEST_SUITE(PainterTest)
 			BOOST_CHECK_EQUAL(shape.GetVertexCount(), 5u);
 			BOOST_CHECK_CLOSE(shape.GetRadius(), 4, EPSILION);
 
-			std::shared_ptr<TestCanvas> canvas = std::make_shared<TestCanvas>();
-			std::shared_ptr<ICanvas> canvasBase = canvas;
-			shape.Draw(canvasBase);
+			TestCanvas canvas;
+			shape.Draw(canvas);
 
-			BOOST_CHECK_EQUAL(canvas->m_color, Color::Red);
-			BOOST_CHECK_EQUAL(canvas->m_lineArr.size(), 5u);
+			BOOST_CHECK_EQUAL(canvas.m_color, Color::Red);
+			BOOST_CHECK_EQUAL(canvas.m_lineArr.size(), 5u);
 		}
 		BOOST_AUTO_TEST_CASE(TestPolygonError)
 		{
@@ -127,21 +123,20 @@ BOOST_AUTO_TEST_SUITE(PainterTest)
 			CShapeFactory factory;
 			std::shared_ptr<CShape> shape = factory.CreateShape("triangle 1 2 3 4 5 6 0");
 
-			std::shared_ptr<TestCanvas> canvas = std::make_shared<TestCanvas>();
-			std::shared_ptr<ICanvas> canvasBase = canvas;
-			shape->Draw(canvasBase);
+			TestCanvas canvas;
+			shape->Draw(canvas);
 
-			BOOST_CHECK_EQUAL(canvas->m_color, Color::Green);
-			BOOST_CHECK_EQUAL(canvas->m_lineArr.size(), 3u);
+			BOOST_CHECK_EQUAL(canvas.m_color, Color::Green);
+			BOOST_CHECK_EQUAL(canvas.m_lineArr.size(), 3u);
 
-			ComparePair(canvas->m_lineArr[0].first, { 1, 2 });
-			ComparePair(canvas->m_lineArr[0].second, { 3, 4 });
+			ComparePair(canvas.m_lineArr[0].first, { 1, 2 });
+			ComparePair(canvas.m_lineArr[0].second, { 3, 4 });
 
-			ComparePair(canvas->m_lineArr[1].first, { 3, 4 });
-			ComparePair(canvas->m_lineArr[1].second, { 5, 6 });
+			ComparePair(canvas.m_lineArr[1].first, { 3, 4 });
+			ComparePair(canvas.m_lineArr[1].second, { 5, 6 });
 
-			ComparePair(canvas->m_lineArr[2].first, { 5, 6 });
-			ComparePair(canvas->m_lineArr[2].second, { 1, 2 });
+			ComparePair(canvas.m_lineArr[2].first, { 5, 6 });
+			ComparePair(canvas.m_lineArr[2].second, { 1, 2 });
 		}
 
 		BOOST_AUTO_TEST_CASE(TestFactoryEllipse)
@@ -149,17 +144,16 @@ BOOST_AUTO_TEST_SUITE(PainterTest)
 			CShapeFactory factory;
 			std::shared_ptr<CShape> shape = factory.CreateShape("ellipse 1 2 3 4 0");
 
-			std::shared_ptr<TestCanvas> canvas = std::make_shared<TestCanvas>();
-			std::shared_ptr<ICanvas> canvasBase = canvas;
-			shape->Draw(canvasBase);
+			TestCanvas canvas;
+			shape->Draw(canvas);
 
-			BOOST_CHECK_EQUAL(canvas->m_color, Color::Green);
-			BOOST_CHECK_EQUAL(canvas->m_lineArr.size(), 0u);
-			BOOST_CHECK_EQUAL(canvas->m_ellipseArr.size(), 1u);
+			BOOST_CHECK_EQUAL(canvas.m_color, Color::Green);
+			BOOST_CHECK_EQUAL(canvas.m_lineArr.size(), 0u);
+			BOOST_CHECK_EQUAL(canvas.m_ellipseArr.size(), 1u);
 
-			BOOST_CHECK_CLOSE(canvas->m_ellipseArr[0].width, 3, EPSILION);
-			BOOST_CHECK_CLOSE(canvas->m_ellipseArr[0].height, 4, EPSILION);
-			ComparePair(canvas->m_ellipseArr[0].leftTop, { 1, 2 });
+			BOOST_CHECK_CLOSE(canvas.m_ellipseArr[0].width, 3, EPSILION);
+			BOOST_CHECK_CLOSE(canvas.m_ellipseArr[0].height, 4, EPSILION);
+			ComparePair(canvas.m_ellipseArr[0].leftTop, { 1, 2 });
 		}
 
 		BOOST_AUTO_TEST_CASE(TestFactoryRectangle)
@@ -167,25 +161,24 @@ BOOST_AUTO_TEST_SUITE(PainterTest)
 			CShapeFactory factory;
 			std::shared_ptr<CShape> shape = factory.CreateShape("rectangle 1 2 3 4 5");
 
-			std::shared_ptr<TestCanvas> canvas = std::make_shared<TestCanvas>();
-			std::shared_ptr<ICanvas> canvasBase = canvas;
-			shape->Draw(canvasBase);
+			TestCanvas canvas;
+			shape->Draw(canvas);
 
-			BOOST_CHECK_EQUAL(canvas->m_color, Color::Black);
-			BOOST_CHECK_EQUAL(canvas->m_lineArr.size(), 4u);
-			BOOST_CHECK_EQUAL(canvas->m_ellipseArr.size(), 0u);
+			BOOST_CHECK_EQUAL(canvas.m_color, Color::Black);
+			BOOST_CHECK_EQUAL(canvas.m_lineArr.size(), 4u);
+			BOOST_CHECK_EQUAL(canvas.m_ellipseArr.size(), 0u);
 
-			ComparePair(canvas->m_lineArr[0].first, { 1, 2 });
-			ComparePair(canvas->m_lineArr[0].second, { 3, 2 });
+			ComparePair(canvas.m_lineArr[0].first, { 1, 2 });
+			ComparePair(canvas.m_lineArr[0].second, { 3, 2 });
 
-			ComparePair(canvas->m_lineArr[1].first, { 1, 2 });
-			ComparePair(canvas->m_lineArr[1].second, { 1, 4 });
+			ComparePair(canvas.m_lineArr[1].first, { 1, 2 });
+			ComparePair(canvas.m_lineArr[1].second, { 1, 4 });
 
-			ComparePair(canvas->m_lineArr[2].first, { 3, 2 });
-			ComparePair(canvas->m_lineArr[2].second, { 3, 4 });
+			ComparePair(canvas.m_lineArr[2].first, { 3, 2 });
+			ComparePair(canvas.m_lineArr[2].second, { 3, 4 });
 
-			ComparePair(canvas->m_lineArr[3].first, { 1, 4 });
-			ComparePair(canvas->m_lineArr[3].second, { 3, 4 });
+			ComparePair(canvas.m_lineArr[3].first, { 1, 4 });
+			ComparePair(canvas.m_lineArr[3].second, { 3, 4 });
 		}
 
 		BOOST_AUTO_TEST_CASE(TestFactoryPolygon)
@@ -193,12 +186,11 @@ BOOST_AUTO_TEST_SUITE(PainterTest)
 			CShapeFactory factory;
 			std::shared_ptr<CShape> shape = factory.CreateShape("polygon 5 1 2 4 1");
 
-			std::shared_ptr<TestCanvas> canvas = std::make_shared<TestCanvas>();
-			std::shared_ptr<ICanvas> canvasBase = canvas;
-			shape->Draw(canvasBase);
+			TestCanvas canvas;
+			shape->Draw(canvas);
 
-			BOOST_CHECK_EQUAL(canvas->m_color, Color::Red);
-			BOOST_CHECK_EQUAL(canvas->m_lineArr.size(), 5u);
+			BOOST_CHECK_EQUAL(canvas.m_color, Color::Red);
+			BOOST_CHECK_EQUAL(canvas.m_lineArr.size(), 5u);
 		}
 
 		BOOST_AUTO_TEST_CASE(TestFactoryError)
@@ -251,30 +243,29 @@ BOOST_AUTO_TEST_SUITE(PainterTest)
 			BOOST_CHECK_EQUAL(draft.GetShape(0)->GetColor(), Color::Green);
 			BOOST_CHECK_EQUAL(draft.GetShape(1)->GetColor(), Color::Red);
 
-			std::shared_ptr<TestCanvas> canvas = std::make_shared<TestCanvas>();
-			std::shared_ptr<ICanvas> canvasBase = canvas;
-			draft.GetShape(0)->Draw(canvasBase);
+			TestCanvas canvas;
+			draft.GetShape(0)->Draw(canvas);
 
-			BOOST_CHECK_EQUAL(canvas->m_color, Color::Green);
-			BOOST_CHECK_EQUAL(canvas->m_lineArr.size(), 3u);
+			BOOST_CHECK_EQUAL(canvas.m_color, Color::Green);
+			BOOST_CHECK_EQUAL(canvas.m_lineArr.size(), 3u);
 
-			ComparePair(canvas->m_lineArr[0].first, { 1, 2 });
-			ComparePair(canvas->m_lineArr[0].second, { 3, 4 });
+			ComparePair(canvas.m_lineArr[0].first, { 1, 2 });
+			ComparePair(canvas.m_lineArr[0].second, { 3, 4 });
 
-			ComparePair(canvas->m_lineArr[1].first, { 3, 4 });
-			ComparePair(canvas->m_lineArr[1].second, { 5, 6 });
+			ComparePair(canvas.m_lineArr[1].first, { 3, 4 });
+			ComparePair(canvas.m_lineArr[1].second, { 5, 6 });
 
-			ComparePair(canvas->m_lineArr[2].first, { 5, 6 });
-			ComparePair(canvas->m_lineArr[2].second, { 1, 2 });
+			ComparePair(canvas.m_lineArr[2].first, { 5, 6 });
+			ComparePair(canvas.m_lineArr[2].second, { 1, 2 });
 
-			draft.GetShape(1)->Draw(canvasBase);
+			draft.GetShape(1)->Draw(canvas);
 
-			BOOST_CHECK_EQUAL(canvas->m_color, Color::Red);
-			BOOST_CHECK_EQUAL(canvas->m_ellipseArr.size(), 1u);
+			BOOST_CHECK_EQUAL(canvas.m_color, Color::Red);
+			BOOST_CHECK_EQUAL(canvas.m_ellipseArr.size(), 1u);
 
-			ComparePair(canvas->m_ellipseArr[0].leftTop, { 1, 2 });
-			BOOST_CHECK_CLOSE(canvas->m_ellipseArr[0].width, 3, EPSILION);
-			BOOST_CHECK_CLOSE(canvas->m_ellipseArr[0].height, 4, EPSILION);
+			ComparePair(canvas.m_ellipseArr[0].leftTop, { 1, 2 });
+			BOOST_CHECK_CLOSE(canvas.m_ellipseArr[0].width, 3, EPSILION);
+			BOOST_CHECK_CLOSE(canvas.m_ellipseArr[0].height, 4, EPSILION);
 		}
 		BOOST_AUTO_TEST_CASE(TestPainter)
 		{
@@ -284,28 +275,27 @@ BOOST_AUTO_TEST_SUITE(PainterTest)
 			std::stringstream ss("triangle 1 2 3 4 5 6 0\nellipse 1 2 3 4 1");
 			CPictureDraft draft = designer.CreateDraft(ss);
 
-			std::shared_ptr<TestCanvas> canvas = std::make_shared<TestCanvas>();
-			std::shared_ptr<ICanvas> canvasBase = canvas;
+			TestCanvas canvas;
 
 			CPainter painter;
-			painter.DrawPicture(draft, canvasBase);
+			painter.DrawPicture(draft, canvas);
 
-			BOOST_CHECK_EQUAL(canvas->m_color, Color::Red);
-			BOOST_CHECK_EQUAL(canvas->m_lineArr.size(), 3u);
+			BOOST_CHECK_EQUAL(canvas.m_color, Color::Red);
+			BOOST_CHECK_EQUAL(canvas.m_lineArr.size(), 3u);
 
-			ComparePair(canvas->m_lineArr[0].first, { 1, 2 });
-			ComparePair(canvas->m_lineArr[0].second, { 3, 4 });
+			ComparePair(canvas.m_lineArr[0].first, { 1, 2 });
+			ComparePair(canvas.m_lineArr[0].second, { 3, 4 });
 
-			ComparePair(canvas->m_lineArr[1].first, { 3, 4 });
-			ComparePair(canvas->m_lineArr[1].second, { 5, 6 });
+			ComparePair(canvas.m_lineArr[1].first, { 3, 4 });
+			ComparePair(canvas.m_lineArr[1].second, { 5, 6 });
 
-			ComparePair(canvas->m_lineArr[2].first, { 5, 6 });
-			ComparePair(canvas->m_lineArr[2].second, { 1, 2 });
+			ComparePair(canvas.m_lineArr[2].first, { 5, 6 });
+			ComparePair(canvas.m_lineArr[2].second, { 1, 2 });
 
-			BOOST_CHECK_EQUAL(canvas->m_ellipseArr.size(), 1u);
-			ComparePair(canvas->m_ellipseArr[0].leftTop, { 1, 2 });
-			BOOST_CHECK_CLOSE(canvas->m_ellipseArr[0].width, 3, EPSILION);
-			BOOST_CHECK_CLOSE(canvas->m_ellipseArr[0].height, 4, EPSILION);
+			BOOST_CHECK_EQUAL(canvas.m_ellipseArr.size(), 1u);
+			ComparePair(canvas.m_ellipseArr[0].leftTop, { 1, 2 });
+			BOOST_CHECK_CLOSE(canvas.m_ellipseArr[0].width, 3, EPSILION);
+			BOOST_CHECK_CLOSE(canvas.m_ellipseArr[0].height, 4, EPSILION);
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 

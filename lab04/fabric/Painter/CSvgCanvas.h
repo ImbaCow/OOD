@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 #include "ICanvas.h"
 #include "simple_svg_1.0.0.hpp"
 

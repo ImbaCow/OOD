@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 #include "ICanvas.h"
 
 class CCanvas : public ICanvas

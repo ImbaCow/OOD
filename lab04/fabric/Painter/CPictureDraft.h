@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 #include "CShape.h"
 
 class CPictureDraft

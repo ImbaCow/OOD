@@ -9,11 +9,10 @@ CEllipse::CEllipse(Color color, const Point& leftTop, double width, double heigh
 	, m_height(height)
 {
 }
-
-void CEllipse::Draw(std::shared_ptr<ICanvas>& canvas) const
+void CEllipse::Draw(ICanvas& canvas) const
 {
-	canvas->SetColor(GetColor());
-	canvas->DrawEllipse(m_leftTop, m_width, m_height);
+	canvas.SetColor(GetColor());
+	canvas.DrawEllipse(m_leftTop, m_width, m_height);
 }
 
 Point CEllipse::GetLeftTop() const

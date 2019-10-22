@@ -16,7 +16,7 @@ int main()
 		CPainter painter;
 
 		CPictureDraft draft = designer.CreateDraft(cin);
-		shared_ptr<ICanvas> canvas = make_shared<CSvgCanvas>("test.svg", 100, 100, 2);
+		CSvgCanvas canvas("test.svg", 100, 100, 2);
 		painter.DrawPicture(draft, canvas);
 	}
 	catch (const std::exception& ex)

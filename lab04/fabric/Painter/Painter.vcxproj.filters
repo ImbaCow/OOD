@@ -69,9 +69,6 @@
     <ClInclude Include="CPainter.h">
       <Filter>Файлы заголовков\Painter</Filter>
     </ClInclude>
-    <ClInclude Include="IPainter.h">
-      <Filter>Файлы заголовков\Painter</Filter>
-    </ClInclude>
     <ClInclude Include="simple_svg_1.0.0.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>

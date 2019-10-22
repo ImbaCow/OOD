@@ -1,11 +1,11 @@
 #pragma once
-#include "pch.h"
-#include "IPainter.h"
+#include "CPictureDraft.h"
+#include "ICanvas.h"
 
-class CPainter : public IPainter
+class CPainter
 {
 public:
 	virtual ~CPainter() = default;
 
-	virtual void DrawPicture(const CPictureDraft& draft, std::shared_ptr<ICanvas>& canvas) override;
+	virtual void DrawPicture(const CPictureDraft& draft, ICanvas& canvas) const;
 };

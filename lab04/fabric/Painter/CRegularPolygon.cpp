@@ -14,6 +14,17 @@ CRegularPolygon::CRegularPolygon(Color color, size_t vertexCount, const Point& c
 	}
 }
 
+void CRegularPolygon::Draw(ICanvas& canvas) const
+{
+	canvas.SetColor(GetColor());
+	for (size_t i = 0; i < m_vertexCount; ++i)
+	{
+		Point from = GetVertexByIndex(i);
+		Point to = GetVertexByIndex(i + 1);
+		canvas.DrawLine(from, to);
+	}
+}
+
 size_t CRegularPolygon::GetVertexCount() const
 {
 	return m_vertexCount;
@@ -34,15 +45,4 @@ Point CRegularPolygon::GetVertexByIndex(size_t index) const
 	double x = m_center.first + m_radius * std::cos(PI / 2 + (2 * PI * index) / m_vertexCount);
 	double y = m_center.second + m_radius * std::sin(PI / 2 + (2 * PI * index) / m_vertexCount);
 	return { x, y };
-}
-
-void CRegularPolygon::Draw(std::shared_ptr<ICanvas>& canvas) const
-{
-	canvas->SetColor(GetColor());
-	for (size_t i = 0; i < m_vertexCount; ++i)
-	{
-		Point from = GetVertexByIndex(i);
-		Point to = GetVertexByIndex(i + 1);
-		canvas->DrawLine(from, to);
-	}
 }

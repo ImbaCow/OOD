@@ -64,6 +64,14 @@ const std::string RECTANGLE_NAME = "rectangle";
 const std::string ELLIPSE_NAME = "ellipse";
 const std::string POLYGON_NAME = "polygon";
 
+CShapeFactory::CShapeFactory()
+{
+	m_shapeGeneratorsMap[TRIANGLE_NAME] = MakeTriangle;
+	m_shapeGeneratorsMap[RECTANGLE_NAME] = MakeRectangle;
+	m_shapeGeneratorsMap[ELLIPSE_NAME] = MakeEllipse;
+	m_shapeGeneratorsMap[POLYGON_NAME] = MakePolygon;
+}
+
 std::shared_ptr<CShape> CShapeFactory::CreateShape(const std::string& description)
 {
 	std::istringstream args(description);
@@ -72,24 +80,13 @@ std::shared_ptr<CShape> CShapeFactory::CreateShape(const std::string& descriptio
 	try
 	{
 		args >> shapeName;
+		auto shapeIt = m_shapeGeneratorsMap.find(shapeName);
+		if (shapeIt == m_shapeGeneratorsMap.end())
+		{
+			throw std::invalid_argument("Unhandled shape: " + shapeName + " given");
+		}
 
-		if (shapeName == TRIANGLE_NAME)
-		{
-			return MakeTriangle(args);
-		}
-		else if (shapeName == RECTANGLE_NAME)
-		{
-			return MakeRectangle(args);
-		}
-		else if (shapeName == ELLIPSE_NAME)
-		{
-			return MakeEllipse(args);
-		}
-		else if (shapeName == POLYGON_NAME)
-		{
-			return MakePolygon(args);
-		}
-		throw std::invalid_argument("Unhandled shape: " + shapeName + " given");
+		return shapeIt->second(args);
 	}
 	catch (const std::exception& ex)
 	{
