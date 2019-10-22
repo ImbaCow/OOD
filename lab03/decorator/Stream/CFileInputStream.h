@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 #include "CInputStream.h"
 
 class CFileInputStream : public CInputStream

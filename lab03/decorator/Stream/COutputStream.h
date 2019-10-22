@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 #include "IOutputStream.h"
 
 class COutputStream : public IOutputStream

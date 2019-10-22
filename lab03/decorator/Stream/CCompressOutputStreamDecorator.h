@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 #include "COutputStreamDecorator.h"
 
 class CCompressOutputStreamDecorator : public COutputStreamDecorator
