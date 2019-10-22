@@ -14,5 +14,5 @@ protected:
 	std::string GetCondimentDescription() const override;
 
 private:
-	unsigned m_quantity;
+	size_t m_quantity;
 };

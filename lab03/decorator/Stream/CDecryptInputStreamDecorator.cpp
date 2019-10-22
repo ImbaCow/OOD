@@ -18,7 +18,7 @@ std::streamsize CDecryptInputStreamDecorator::ReadBlock(void* dstBuffer, std::st
 	std::streamsize newSize = CInputStreamDecorator::ReadBlock(dstBuffer, size);
 	uint8_t* buff = static_cast<uint8_t*>(dstBuffer);
 
-	for (size_t i = 0; i < newSize; ++i)
+	for (std::streamsize i = 0; i < newSize; ++i)
 	{
 		uint8_t ch = *(buff + i);
 		*(buff + i) = m_encryptor.Decrypt(ch);

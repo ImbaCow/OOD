@@ -9,7 +9,7 @@ CChocolate::CChocolate(IBeveragePtr&& beverage, size_t quantity)
 
 double CChocolate::GetCondimentCost() const
 {
-	return 10 * m_quantity;
+	return static_cast<double>(10 * m_quantity);
 }
 
 std::string CChocolate::GetCondimentDescription() const
