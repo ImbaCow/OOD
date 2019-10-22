@@ -14,6 +14,30 @@
 
 using namespace std;
 
+class TestFile
+{
+public:
+	TestFile(const string& name, const string& content = "")
+		: m_path(filesystem::temp_directory_path() / name)
+	{
+		std::ofstream out(m_path, ios::binary);
+		out << content;
+	}
+
+	filesystem::path GetPath()
+	{
+		return m_path;
+	}
+
+	~TestFile()
+	{
+		filesystem::remove(m_path);
+	}
+
+private:
+	filesystem::path m_path;
+};
+
 BOOST_AUTO_TEST_SUITE(TestStream)
 
 	BOOST_AUTO_TEST_SUITE(TestMemoryOutputStream)
@@ -37,10 +61,9 @@ BOOST_AUTO_TEST_SUITE(TestStream)
 
 			BOOST_CHECK(!stream.IsEOF());
 			BOOST_CHECK_EQUAL(stream.ReadByte(), 'n');
-			char* buff = new char[8];
-			BOOST_CHECK_EQUAL(8, stream.ReadBlock(buff, 8));
-			BOOST_CHECK_EQUAL(string(buff, 8), "ot empty");
-			delete[] buff;
+			vector<char> buff(8);
+			BOOST_CHECK_EQUAL(8, stream.ReadBlock(buff.data(), 8));
+			BOOST_CHECK_EQUAL(string(buff.data(), buff.size()), "ot empty");
 		}
 		BOOST_AUTO_TEST_CASE(TestReadWhenEmpty)
 		{
@@ -49,9 +72,8 @@ BOOST_AUTO_TEST_SUITE(TestStream)
 
 			stream.ReadByte();
 			BOOST_CHECK(stream.IsEOF());
-			char* buff = new char[4]{ '1', '2', '3', '4' };
-			BOOST_CHECK_EQUAL(0, stream.ReadBlock(buff, 4));
-			delete[] buff;
+			vector<char> buff{ '1', '2', '3', '4' };
+			BOOST_CHECK_EQUAL(0, stream.ReadBlock(buff.data(), buff.size()));
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
@@ -120,15 +142,14 @@ BOOST_AUTO_TEST_SUITE(TestStream)
 			unique_ptr<IInputStream> stream = make_unique<CMemoryInputStream>(iss);
 			stream = make_unique<CDecompressInputStreamDecorator>(move(stream));
 
-			char* buff = new char[6]();
-			BOOST_CHECK_EQUAL(3, stream->ReadBlock(buff, 3));
-			BOOST_CHECK_EQUAL(string("vdd"), string(buff, 3));
-			BOOST_CHECK_EQUAL(3, stream->ReadBlock(buff + 3, 3));
-			BOOST_CHECK_EQUAL(string("vdddoo"), string(buff, 6));
+			vector<char> buff(6);
+			BOOST_CHECK_EQUAL(3, stream->ReadBlock(buff.data(), 3));
+			BOOST_CHECK_EQUAL(string("vdd"), string(buff.data(), 3));
+			BOOST_CHECK_EQUAL(3, stream->ReadBlock(buff.data() + 3, 3));
+			BOOST_CHECK_EQUAL(string("vdddoo"), string(buff.data(), 6));
 			BOOST_CHECK(!stream->IsEOF());
 			stream->ReadByte();
 			BOOST_CHECK(stream->IsEOF());
-			delete[] buff;
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
@@ -168,67 +189,66 @@ BOOST_AUTO_TEST_SUITE(TestStream)
 			istr = make_unique<CDecryptInputStreamDecorator>(move(istr), 123);
 
 			BOOST_CHECK(!istr->IsEOF());
-			char* buff = new char[6]();
-			BOOST_CHECK_EQUAL(6, istr->ReadBlock(buff, 6));
-			BOOST_CHECK_EQUAL("vdddoo", string(buff, 6));
+			vector<char> buff(6);
+			BOOST_CHECK_EQUAL(6, istr->ReadBlock(buff.data(), 6));
+			BOOST_CHECK_EQUAL("vdddoo", string(buff.data(), 6));
 			BOOST_CHECK(!istr->IsEOF());
 			istr->ReadByte();
 			BOOST_CHECK(istr->IsEOF());
-			delete[] buff;
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
 	BOOST_AUTO_TEST_SUITE(TestFileStream)
 		BOOST_AUTO_TEST_CASE(TestWrite)
 		{
-			unique_ptr<IOutputStream> ostr = make_unique<CFileOutputStream>("test.txt");
+			TestFile file("test.txt");
+			unique_ptr<IOutputStream> ostr = make_unique<CFileOutputStream>(file.GetPath().string());
 
 			ostr->WriteByte('0');
 			ostr->WriteBlock("000999888", 9);
 			ostr.reset();
 
-			unique_ptr<IInputStream> istr = make_unique<CFileInputStream>("test.txt");
+			unique_ptr<IInputStream> istr = make_unique<CFileInputStream>(file.GetPath().string());
 			BOOST_CHECK_EQUAL('0', istr->ReadByte());
-			char* buff = new char[9];
-			BOOST_CHECK_EQUAL(9, istr->ReadBlock(buff, 9));
-			BOOST_CHECK_EQUAL("000999888", string(buff, 9));
-			delete[] buff;
+			vector<char> buff(9);
+			BOOST_CHECK_EQUAL(9, istr->ReadBlock(buff.data(), 9));
+			BOOST_CHECK_EQUAL("000999888", string(buff.data(), 9));
 		}
 
 		BOOST_AUTO_TEST_CASE(TestWriteCompress)
 		{
-			unique_ptr<IOutputStream> ostr = make_unique<CFileOutputStream>("test.txt");
+			TestFile file("test.txt");
+			unique_ptr<IOutputStream> ostr = make_unique<CFileOutputStream>(file.GetPath().string());
 			ostr = make_unique<CCompressOutputStreamDecorator>(move(ostr));
 
 			ostr->WriteByte('0');
 			ostr->WriteBlock("000999888", 9);
 			ostr.reset();
 
-			unique_ptr<IInputStream> istr = make_unique<CFileInputStream>("test.txt");
+			unique_ptr<IInputStream> istr = make_unique<CFileInputStream>(file.GetPath().string());
 			istr = make_unique<CDecompressInputStreamDecorator>(move(istr));
 			BOOST_CHECK_EQUAL('0', istr->ReadByte());
-			char* buff = new char[9];
-			BOOST_CHECK_EQUAL(9, istr->ReadBlock(buff, 9));
-			BOOST_CHECK_EQUAL("000999888", string(buff, 9));
-			delete[] buff;
+			vector<char> buff(9);
+			BOOST_CHECK_EQUAL(9, istr->ReadBlock(buff.data(), 9));
+			BOOST_CHECK_EQUAL("000999888", string(buff.data(), 9));
 		}
 
 		BOOST_AUTO_TEST_CASE(TestWriteCrypt)
 		{
-			unique_ptr<IOutputStream> ostr = make_unique<CFileOutputStream>("test.txt");
+			TestFile file("test.txt");
+			unique_ptr<IOutputStream> ostr = make_unique<CFileOutputStream>(file.GetPath().string());
 			ostr = make_unique<CEncryptOutputStreamDecorator>(move(ostr), 321);
 
 			ostr->WriteByte('0');
 			ostr->WriteBlock("000999888", 9);
 			ostr.reset();
 
-			unique_ptr<IInputStream> istr = make_unique<CFileInputStream>("test.txt");
+			unique_ptr<IInputStream> istr = make_unique<CFileInputStream>(file.GetPath().string());
 			istr = make_unique<CDecryptInputStreamDecorator>(move(istr), 321);
 			BOOST_CHECK_EQUAL('0', istr->ReadByte());
-			char* buff = new char[9];
-			BOOST_CHECK_EQUAL(9, istr->ReadBlock(buff, 9));
-			BOOST_CHECK_EQUAL("000999888", string(buff, 9));
-			delete[] buff;
+			vector<char> buff(9);
+			BOOST_CHECK_EQUAL(9, istr->ReadBlock(buff.data(), 9));
+			BOOST_CHECK_EQUAL("000999888", string(buff.data(), 9));
 		}
 	BOOST_AUTO_TEST_SUITE_END()
 
