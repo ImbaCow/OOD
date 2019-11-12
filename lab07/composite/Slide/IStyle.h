@@ -4,7 +4,7 @@
 class IStyle
 {
 public:
-	virtual bool IsEnabled() const = 0;
+	virtual std::optional<bool> IsEnabled() const = 0;
 	virtual void Enable(bool enable) = 0;
 
 	virtual std::optional<RGBAColor> GetColor() const = 0;

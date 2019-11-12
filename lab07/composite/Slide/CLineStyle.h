@@ -14,7 +14,7 @@ public:
 	virtual std::optional<double> GetLineSize() const override;
 	virtual void SetLineSize(double lineSize) override;
 
-	virtual bool IsEnabled() const override;
+	virtual std::optional<bool> IsEnabled() const override;
 	virtual void Enable(bool enable) override;
 
 	virtual std::optional<RGBAColor> GetColor() const override;

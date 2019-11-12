@@ -11,7 +11,7 @@ CStyle::CStyle(RGBAColor color)
 {
 }
 
-bool CStyle::IsEnabled() const
+std::optional<bool> CStyle::IsEnabled() const
 {
 	return m_isEnabled;
 }
@@ -23,7 +23,7 @@ void CStyle::Enable(bool enable)
 
 std::optional<RGBAColor> CStyle::GetColor() const
 {
-	if (!IsEnabled())
+	if (!IsEnabled().value())
 	{
 		throw std::logic_error("Style is not enabled");
 	}

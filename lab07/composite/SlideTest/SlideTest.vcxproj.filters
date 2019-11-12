@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Inc">
+      <UniqueIdentifier>{ba0c3cfa-b86c-432e-aea0-d14101a7752a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Test">
+      <UniqueIdentifier>{fdaaa78e-0049-4fe9-9fc1-b7d4590dffda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Test\TestShape">
+      <UniqueIdentifier>{0cb420fb-e07a-488a-beb5-313133e31046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Test\TestStyle">
+      <UniqueIdentifier>{60c4ee6f-08cd-434a-b577-7e5d4d105f5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Test\TestDraw">
+      <UniqueIdentifier>{6674eb04-1e31-4e89-807f-9b1f9596fcfb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Slide\CEllipseShape.cpp">
+      <Filter>Source Files\Inc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Slide\CLineStyle.cpp">
+      <Filter>Source Files\Inc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Slide\CLineStyleGroup.cpp">
+      <Filter>Source Files\Inc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Slide\CRectangleShape.cpp">
+      <Filter>Source Files\Inc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Slide\CShape.cpp">
+      <Filter>Source Files\Inc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Slide\CShapeGroup.cpp">
+      <Filter>Source Files\Inc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Slide\CStyle.cpp">
+      <Filter>Source Files\Inc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Slide\CStyleGroup.cpp">
+      <Filter>Source Files\Inc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Slide\CSvgCanvas.cpp">
+      <Filter>Source Files\Inc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Slide\CTriangleShape.cpp">
+      <Filter>Source Files\Inc</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTriangle.cpp">
+      <Filter>Source Files\Test\TestShape</Filter>
+    </ClCompile>
+    <ClCompile Include="TestEllipse.cpp">
+      <Filter>Source Files\Test\TestShape</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUtils.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestRectangle.cpp">
+      <Filter>Source Files\Test\TestShape</Filter>
+    </ClCompile>
+    <ClCompile Include="TestShapeGroup.cpp">
+      <Filter>Source Files\Test\TestShape</Filter>
+    </ClCompile>
+    <ClCompile Include="TestStyle.cpp">
+      <Filter>Source Files\Test\TestStyle</Filter>
+    </ClCompile>
+    <ClCompile Include="TestLineStyle.cpp">
+      <Filter>Source Files\Test\TestStyle</Filter>
+    </ClCompile>
+    <ClCompile Include="TestCanvas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDraw.cpp">
+      <Filter>Source Files\Test\TestDraw</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestCanvas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

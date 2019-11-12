@@ -5,23 +5,27 @@
 class CShape : public IShape
 {
 public:
-	CShape(const Rect& rect);
+	CShape(const Rect& rect, std::shared_ptr<IStyle> fillStyle, std::shared_ptr<ILineStyle> lineStyle);
 	~CShape() = default;
 
 	virtual Rect GetFrame() override;
 	virtual void SetFrame(const Rect& rect) override;
 
-	virtual ILineStyle& GetOutlineStyle() override;
-	virtual const ILineStyle& GetOutlineStyle() const override;
+	virtual const std::shared_ptr<ILineStyle> GetOutlineStyle() override;
+	virtual const std::shared_ptr<const ILineStyle> GetOutlineStyle() const override;
 
-	virtual IStyle& GetFillStyle() override;
-	virtual const IStyle& GetFillStyle() const override;
+	virtual const std::shared_ptr<IStyle> GetFillStyle() override;
+	virtual const std::shared_ptr<const IStyle> GetFillStyle() const override;
+
+	virtual void Draw(ICanvas& canvas) override;
 
 protected:
 	virtual void ResizeShape(const Rect& newRect) = 0;
+	virtual void DrawColoredLine(ICanvas& canvas) = 0;
+	virtual void DrawColoredFill(ICanvas& canvas) = 0;
 
 private:
 	Rect m_frame;
-	CLineStyle m_lineStyle;
-	CStyle m_fillStyle;
+	const std::shared_ptr<ILineStyle> m_lineStyle;
+	std::shared_ptr<IStyle> m_fillStyle;
 };

@@ -17,16 +17,27 @@ Rect CalcTriangleFrame(const Point& vertex1, const Point& vertex2, const Point& 
 	};
 };
 
-CTriangleShape::CTriangleShape(const Point& vertex1, const Point& vertex2, const Point& vertex3)
-	: CShape(CalcTriangleFrame(vertex1, vertex2, vertex3))
+CTriangleShape::CTriangleShape(const Point& vertex1, const Point& vertex2, const Point& vertex3, std::shared_ptr<IStyle> fillStyle, std::shared_ptr<ILineStyle> lineStyle)
+	: CShape(CalcTriangleFrame(vertex1, vertex2, vertex3), fillStyle, lineStyle)
 	, m_vertex1(vertex1)
 	, m_vertex2(vertex2)
 	, m_vertex3(vertex3)
 {
 }
 
-void CTriangleShape::Draw(const ICanvas& canvas)
+Point CTriangleShape::GetVertex1() const
 {
+	return m_vertex1;
+}
+
+Point CTriangleShape::GetVertex2() const
+{
+	return m_vertex2;
+}
+
+Point CTriangleShape::GetVertex3() const
+{
+	return m_vertex3;
 }
 
 Point CalcVertex(const Point& oldVertex, const Rect& newRect, const Rect& oldRect)
@@ -49,4 +60,18 @@ void CTriangleShape::ResizeShape(const Rect& newRect)
 	m_vertex1 = CalcVertex(m_vertex1, newRect, oldRect);
 	m_vertex2 = CalcVertex(m_vertex2, newRect, oldRect);
 	m_vertex3 = CalcVertex(m_vertex3, newRect, oldRect);
+}
+
+void CTriangleShape::DrawColoredLine(ICanvas& canvas)
+{
+	canvas.DrawLine(m_vertex1, m_vertex2);
+	canvas.DrawLine(m_vertex2, m_vertex3);
+	canvas.DrawLine(m_vertex3, m_vertex1);
+}
+
+void CTriangleShape::DrawColoredFill(ICanvas& canvas)
+{
+	canvas.FillPolygon({ m_vertex1,
+		m_vertex2,
+		m_vertex3 });
 }

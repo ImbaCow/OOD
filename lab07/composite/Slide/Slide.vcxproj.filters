@@ -19,6 +19,15 @@
     <Filter Include="Файлы заголовков\Style">
       <UniqueIdentifier>{bf9da17a-50a5-43b3-a378-ecd2fc32b018}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Canvas">
+      <UniqueIdentifier>{d458ba6c-238a-42aa-aecb-0d21c28866c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Style\LineStyle">
+      <UniqueIdentifier>{2632720b-f3ed-4b39-b206-27fee3e7c999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Style\Style">
+      <UniqueIdentifier>{97c7caf9-a43e-4fff-94fc-5eaa50c45e55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -27,26 +36,11 @@
     <ClInclude Include="IDrawable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="ICanvas.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="CommonTypes.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="IShape.h">
       <Filter>Файлы заголовков\Shape</Filter>
-    </ClInclude>
-    <ClInclude Include="IStyle.h">
-      <Filter>Файлы заголовков\Style</Filter>
-    </ClInclude>
-    <ClInclude Include="ILineStyle.h">
-      <Filter>Файлы заголовков\Style</Filter>
-    </ClInclude>
-    <ClInclude Include="CStyle.h">
-      <Filter>Файлы заголовков\Style</Filter>
-    </ClInclude>
-    <ClInclude Include="CLineStyle.h">
-      <Filter>Файлы заголовков\Style</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Файлы заголовков</Filter>
@@ -66,6 +60,36 @@
     <ClInclude Include="CShapeGroup.h">
       <Filter>Файлы заголовков\Shape</Filter>
     </ClInclude>
+    <ClInclude Include="ICanvas.h">
+      <Filter>Файлы заголовков\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="CLineStyle.h">
+      <Filter>Файлы заголовков\Style\LineStyle</Filter>
+    </ClInclude>
+    <ClInclude Include="CLineStyleGroup.h">
+      <Filter>Файлы заголовков\Style\LineStyle</Filter>
+    </ClInclude>
+    <ClInclude Include="ILineStyle.h">
+      <Filter>Файлы заголовков\Style\LineStyle</Filter>
+    </ClInclude>
+    <ClInclude Include="CStyle.h">
+      <Filter>Файлы заголовков\Style\Style</Filter>
+    </ClInclude>
+    <ClInclude Include="CStyleGroup.h">
+      <Filter>Файлы заголовков\Style\Style</Filter>
+    </ClInclude>
+    <ClInclude Include="IStyle.h">
+      <Filter>Файлы заголовков\Style\Style</Filter>
+    </ClInclude>
+    <ClInclude Include="CompositeUtils.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="simple_svg_1.0.0.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="CSvgCanvas.h">
+      <Filter>Файлы заголовков\Canvas</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -80,9 +104,6 @@
     <ClCompile Include="CLineStyle.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="CShape.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="CRectangleShape.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -93,6 +114,18 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="CShapeGroup.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CStyleGroup.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CLineStyleGroup.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CShape.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CSvgCanvas.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

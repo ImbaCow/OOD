@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.852
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Slide", "Slide\Slide.vcxproj", "{95AD70B5-F7EC-4996-9D50-DA484424FF5A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SlideTest", "SlideTest\SlideTest.vcxproj", "{09FE059D-734E-4B4C-839B-258CAB47C2FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{95AD70B5-F7EC-4996-9D50-DA484424FF5A}.Release|x64.Build.0 = Release|x64
 		{95AD70B5-F7EC-4996-9D50-DA484424FF5A}.Release|x86.ActiveCfg = Release|Win32
 		{95AD70B5-F7EC-4996-9D50-DA484424FF5A}.Release|x86.Build.0 = Release|Win32
+		{09FE059D-734E-4B4C-839B-258CAB47C2FA}.Debug|x64.ActiveCfg = Debug|x64
+		{09FE059D-734E-4B4C-839B-258CAB47C2FA}.Debug|x64.Build.0 = Debug|x64
+		{09FE059D-734E-4B4C-839B-258CAB47C2FA}.Debug|x86.ActiveCfg = Debug|Win32
+		{09FE059D-734E-4B4C-839B-258CAB47C2FA}.Debug|x86.Build.0 = Debug|Win32
+		{09FE059D-734E-4B4C-839B-258CAB47C2FA}.Release|x64.ActiveCfg = Release|x64
+		{09FE059D-734E-4B4C-839B-258CAB47C2FA}.Release|x64.Build.0 = Release|x64
+		{09FE059D-734E-4B4C-839B-258CAB47C2FA}.Release|x86.ActiveCfg = Release|Win32
+		{09FE059D-734E-4B4C-839B-258CAB47C2FA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

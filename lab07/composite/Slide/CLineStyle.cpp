@@ -14,7 +14,7 @@ CLineStyle::CLineStyle(RGBAColor color, double lineSize)
 
 std::optional<double> CLineStyle::GetLineSize() const
 {
-	if (!CStyle::IsEnabled())
+	if (!CStyle::IsEnabled().value())
 	{
 		throw std::logic_error("Style is not enabled");
 	}
@@ -25,8 +25,8 @@ void CLineStyle::SetLineSize(double lineSize)
 {
 	m_lineSize = lineSize;
 }
-
-bool CLineStyle::IsEnabled() const
+	
+std::optional<bool> CLineStyle::IsEnabled() const
 {
 	return CStyle::IsEnabled();
 }
