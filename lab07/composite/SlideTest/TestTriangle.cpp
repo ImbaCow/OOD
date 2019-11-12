@@ -70,9 +70,6 @@ SCENARIO("Triangle can be drawn")
 			Point p3{ 190.0, 6.0 };
 			CTriangleShape shape(p1, p2, p3, make_shared<CStyle>(0xFFFFFFFF), make_shared<CLineStyle>(0xFFFFFFFF, 1.2));
 
-			std::ostringstream out;
-			TestCanvas canvas(out);
-
 			WHEN("call shape draw")
 			{
 				shape.Draw(canvas);

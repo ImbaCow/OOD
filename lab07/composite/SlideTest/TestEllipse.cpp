@@ -64,9 +64,6 @@ SCENARIO("Ellipse can be drawn")
 			Point p1{ 10.0, 6.0 };
 			CEllipseShape shape({ p1, 180.0, 9.0 }, make_shared<CStyle>(0xFFFFFFFF), make_shared<CLineStyle>(0xFFFFFFFF, 1.2));
 
-			std::ostringstream out;
-			TestCanvas canvas(out);
-
 			WHEN("call shape draw")
 			{
 				shape.Draw(canvas);

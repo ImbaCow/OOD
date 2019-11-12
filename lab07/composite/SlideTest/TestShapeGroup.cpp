@@ -104,9 +104,6 @@ SCENARIO("Shape group can be drawn")
 			auto shape3 = make_shared<CRectangleShape>(Rect{ Point{ 3.0, 6.0 }, 360.0, 9.0 }, make_shared<CStyle>(0x00000000), make_shared<CLineStyle>(0x00FF000F, 113.0));
 			CShapeGroup sg({ shape1, shape2, shape3 });
 
-			std::ostringstream out;
-			TestCanvas canvas(out);
-
 			WHEN("call shape draw")
 			{
 				sg.Draw(canvas);

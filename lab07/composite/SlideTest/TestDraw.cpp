@@ -9,13 +9,13 @@ SCENARIO("Shapes can be drawn")
 {
 	GIVEN("canvas")
 	{
+		std::ostringstream out;
+		TestCanvas canvas(out);
+
 		AND_GIVEN("no line style shape")
 		{
 			Point p1{ 10.0, 6.0 };
 			CEllipseShape shape({ p1, 180.0, 9.0 }, make_shared<CStyle>(0xFFFFFFFF), make_shared<CLineStyle>());
-
-			std::ostringstream out;
-			TestCanvas canvas(out);
 
 			WHEN("call shape draw")
 			{
@@ -34,9 +34,6 @@ fillEllipse:10.0/6.0;180.0;9.0
 		{
 			Point p1{ 10.0, 6.0 };
 			CEllipseShape shape({ p1, 180.0, 9.0 }, make_shared<CStyle>(), make_shared<CLineStyle>(0xFFFFFFFF, 1.2));
-
-			std::ostringstream out;
-			TestCanvas canvas(out);
 
 			WHEN("call shape draw")
 			{
@@ -60,9 +57,6 @@ ellipse:10.0/6.0;180.0;9.0
 			fillStyle->Enable(true);
 			lineStyle->Enable(true);
 			CEllipseShape shape({ p1, 180.0, 9.0 }, fillStyle, lineStyle);
-
-			std::ostringstream out;
-			TestCanvas canvas(out);
 
 			WHEN("call shape draw")
 			{

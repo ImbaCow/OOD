@@ -10,18 +10,18 @@ using namespace std;
 
 void Test1()
 {
-	auto triangle1 = make_shared<CTriangleShape>(Point{ 10, 10 }, Point{ 60, 20 }, Point{ 35, 70 });
+	auto triangle1 = make_shared<CTriangleShape>(Point{ 10, 10 }, Point{ 60, 20 }, Point{ 35, 70 }, make_shared<CStyle>(), make_shared<CLineStyle>());
 	triangle1->GetFillStyle()->Enable(true);
 	triangle1->GetFillStyle()->SetColor(0x0000FFFF);
 	triangle1->GetOutlineStyle()->Enable(true);
 	triangle1->GetOutlineStyle()->SetColor(0x000000FF);
 	triangle1->GetOutlineStyle()->SetLineSize(3.0);
 
-	auto triangle2 = make_shared<CTriangleShape>(Point{ 10, 90 }, Point{ 60, 100 }, Point{ 35, 70 });
+	auto triangle2 = make_shared<CTriangleShape>(Point{ 10, 90 }, Point{ 60, 100 }, Point{ 35, 70 }, make_shared<CStyle>(), make_shared<CLineStyle>());
 	triangle2->GetFillStyle()->Enable(true);
 	triangle2->GetFillStyle()->SetColor(0x00FF008F);
 
-	auto ellipse = make_shared<CEllipseShape>(Point{ 35, 70 }, 100, 55);
+	auto ellipse = make_shared<CEllipseShape>(Rect{ Point{ 35, 70 }, 100, 55 }, make_shared<CStyle>(), make_shared<CLineStyle>());
 	ellipse->GetFillStyle()->Enable(true);
 	ellipse->GetFillStyle()->SetColor(0xFF0000FF);
 	ellipse->GetOutlineStyle()->Enable(true);
@@ -45,14 +45,14 @@ void Test1()
 
 void Test2()
 {
-	auto rectangle = make_shared<CRectangleShape>(Point{ 10, 10 }, 50, 100);
+	auto rectangle = make_shared<CRectangleShape>(Rect{ Point{ 10, 10 }, 50, 100 }, make_shared<CStyle>(), make_shared<CLineStyle>());
 	rectangle->GetFillStyle()->Enable(true);
 	rectangle->GetFillStyle()->SetColor(0x00FF00FF);
 	rectangle->GetOutlineStyle()->Enable(true);
 	rectangle->GetOutlineStyle()->SetColor(0x000000FF);
 	rectangle->GetOutlineStyle()->SetLineSize(2.0);
 
-	auto ellipse = make_shared<CEllipseShape>(Point{ 40, 30 }, 50, 50);
+	auto ellipse = make_shared<CEllipseShape>(Rect{ Point{ 40, 30 }, 50, 50 }, make_shared<CStyle>(), make_shared<CLineStyle>());
 	ellipse->GetFillStyle()->Enable(true);
 	ellipse->GetFillStyle()->SetColor(0xFFFF00FF);
 	ellipse->GetOutlineStyle()->Enable(true);
