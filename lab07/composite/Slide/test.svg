@@ -1,11 +1,9 @@
 <?xml version="1.0" standalone="no" ?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="400px" height="400px" xmlns="http://www.w3.org/2000/svg" version="1.1" >
-	<polygon points="166,132 166,222 126,222 126,132 " fill="rgba(0,255,0,0.996094)" />
-	<polyline points="126,132 166,132 " fill="transparent" stroke-width="2" stroke="rgba(0,0,0,0.996094)" />
-	<polyline points="166,132 166,222 " fill="transparent" stroke-width="2" stroke="rgba(0,0,0,0.996094)" />
-	<polyline points="166,222 126,222 " fill="transparent" stroke-width="2" stroke="rgba(0,0,0,0.996094)" />
-	<polyline points="126,222 126,132 " fill="transparent" stroke-width="2" stroke="rgba(0,0,0,0.996094)" />
-	<ellipse cx="170" cy="172.5" rx="20" ry="22.5" fill="rgba(255,255,0,0.996094)" />
-	<ellipse cx="170" cy="172.5" rx="20" ry="22.5" fill="transparent" stroke-width="3" stroke="rgba(0,0,0,0.996094)" />
+<svg width="200px" height="200px" xmlns="http://www.w3.org/2000/svg" version="1.1" >
+	<polygon points="10,90 60,100 35,70 " fill="rgba(0,255,0,0.558594)" />
+	<polyline points="10,10 60,20 " fill="transparent" stroke-width="2" stroke="rgba(0,255,0,0.996094)" />
+	<polyline points="60,20 35,70 " fill="transparent" stroke-width="2" stroke="rgba(0,255,0,0.996094)" />
+	<polyline points="35,70 10,10 " fill="transparent" stroke-width="2" stroke="rgba(0,255,0,0.996094)" />
+	<ellipse cx="85" cy="97.5" rx="50" ry="27.5" fill="transparent" stroke-width="2" stroke="rgba(0,255,0,0.996094)" />
 </svg>

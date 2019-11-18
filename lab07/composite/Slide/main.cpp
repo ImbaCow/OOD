@@ -73,5 +73,5 @@ void Test2()
 
 int main()
 {
-	Test2();
+	Test1();
 }

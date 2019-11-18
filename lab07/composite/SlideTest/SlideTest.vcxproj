@@ -185,6 +185,7 @@
     <ClCompile Include="TestUtils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="catch2\catch.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="TestCanvas.h" />
   </ItemGroup>

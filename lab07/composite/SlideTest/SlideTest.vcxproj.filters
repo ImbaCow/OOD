@@ -101,5 +101,8 @@
     <ClInclude Include="TestCanvas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="catch2\catch.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
