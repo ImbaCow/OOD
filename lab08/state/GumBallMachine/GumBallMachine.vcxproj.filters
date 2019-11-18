@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\StateGumballMachine">
+      <UniqueIdentifier>{1b81b4c3-ddbd-4f2b-84f1-80947cf07000}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NaiveGumballMachine">
+      <UniqueIdentifier>{6af78220-8c15-4cf6-8a1a-81a0f1fb3e0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\StateGumballMachine\State">
+      <UniqueIdentifier>{b214600a-93f9-4d21-868b-dd4c26376382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MultiGumballMachine">
+      <UniqueIdentifier>{ece0979b-9b0e-4225-8359-9bfd46683851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MultiGumballMachine\State">
+      <UniqueIdentifier>{7b08bb57-b37f-4a69-894d-be02f039103c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IState.h">
+      <Filter>Header Files\StateGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="IGumballMachine.h">
+      <Filter>Header Files\StateGumballMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoldState.h">
+      <Filter>Header Files\StateGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoldOutState.h">
+      <Filter>Header Files\StateGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CHasQuarterState.h">
+      <Filter>Header Files\StateGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CNoQuarterState.h">
+      <Filter>Header Files\StateGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CGumballMachine.h">
+      <Filter>Header Files\StateGumballMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="CNaiveGumbalMachine.h">
+      <Filter>Header Files\NaiveGumballMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="CHasQuartersState.h">
+      <Filter>Header Files\MultiGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CMaxQuarterCountState.h">
+      <Filter>Header Files\MultiGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="IMultiGumballMachine.h">
+      <Filter>Header Files\MultiGumballMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoldOneState.h">
+      <Filter>Header Files\MultiGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CMultiSoldOutState.h">
+      <Filter>Header Files\MultiGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CMultiGumballMachine.h">
+      <Filter>Header Files\MultiGumballMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="CMultiNoQuarterState.h">
+      <Filter>Header Files\MultiGumballMachine\State</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
