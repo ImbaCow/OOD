@@ -17,11 +17,7 @@ public:
 
 	void EjectQuarter() override
 	{
-		for (size_t i = 0; i < m_gumballMachine.GetQuarterCount(); i++)
-		{
-			m_gumballMachine.ReleaseQuarter();
-		}
-		std::cout << "All quarters returned\n";
+		m_gumballMachine.EjectQuarters();
 		m_gumballMachine.SetNoQuarterState();
 	}
 

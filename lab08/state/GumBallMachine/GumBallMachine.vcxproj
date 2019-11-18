@@ -163,6 +163,7 @@
     <ClInclude Include="CHasQuartersState.h" />
     <ClInclude Include="CHasQuarterState.h" />
     <ClInclude Include="CMaxQuarterCountState.h" />
+    <ClInclude Include="CMultiNaiveGumballMachine.h" />
     <ClInclude Include="CMultiNoQuarterState.h" />
     <ClInclude Include="CMultiSoldOutState.h" />
     <ClInclude Include="CNaiveGumbalMachine.h" />

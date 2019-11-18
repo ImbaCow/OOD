@@ -4,7 +4,8 @@
 
 struct IMultiGumballMachine : public IGumballMachine
 {
-	virtual void ReleaseQuarter() = 0;
+	virtual void RemoveQuarter() = 0;
+	virtual void EjectQuarters() = 0;
 	virtual void AddQuarter() = 0;
 	virtual size_t GetQuarterCount() const = 0;
 

@@ -2,7 +2,7 @@
 #include "pch.h"
 #include "CMaxQuarterCountState.h"
 #include "CHasQuartersState.h"
-#include "CNoQuarterState.h"
+#include "CMultiNoQuarterState.h"
 #include "CSoldOutState.h"
 #include "CSoldOneState.h"
 
@@ -69,7 +69,7 @@ private:
 
 	void SetNoQuarterState() override
 	{
-		m_currentState.reset(new CNoQuarterState(*this));
+		m_currentState.reset(new CMultiNoQuarterState(*this));
 	}
 
 	void SetSoldState() override
@@ -87,11 +87,16 @@ private:
 		m_currentState.reset(new CMaxQuarterCountState(*this));
 	}
 
-	virtual void ReleaseQuarter() override
+	virtual void EjectQuarters() override
+	{
+		std::cout << m_quarterCount << " quarters comes rolling out the slot...\n";
+		m_quarterCount = 0;
+	}
+
+	virtual void RemoveQuarter() override
 	{
 		if (m_quarterCount)
 		{
-			std::cout << "A quarter comes rolling out the slot...\n";
 			--m_quarterCount;
 		}
 	}

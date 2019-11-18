@@ -28,6 +28,9 @@
     <Filter Include="Header Files\MultiGumballMachine\State">
       <UniqueIdentifier>{7b08bb57-b37f-4a69-894d-be02f039103c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\MultiNaiveGumballMachine">
+      <UniqueIdentifier>{51c4bcc6-1e72-451a-99ad-445498f337f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="CMultiNoQuarterState.h">
       <Filter>Header Files\MultiGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CMultiNaiveGumballMachine.h">
+      <Filter>Header Files\MultiNaiveGumballMachine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
