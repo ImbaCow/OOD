@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "CRectangleShape.h"
 
-CRectangleShape::CRectangleShape(const Rect& frame, std::shared_ptr<IStyle> fillStyle, std::shared_ptr<ILineStyle> lineStyle)
-	: CShape(frame, fillStyle, lineStyle)
+CRectangleShape::CRectangleShape(const Rect& frame, std::unique_ptr<IStyle> fillStyle, std::unique_ptr<ILineStyle> lineStyle)
+	: CShape(frame, move(fillStyle), move(lineStyle))
 	, m_leftTop(frame.leftTop)
 	, m_width(frame.width)
 	, m_height(frame.height)

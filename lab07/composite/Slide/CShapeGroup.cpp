@@ -1,24 +1,28 @@
 #include "pch.h"
 #include "CShapeGroup.h"
 
-Rect CalcCompositeFrame(const std::vector<std::shared_ptr<IShape>>& shapes)
+namespace
 {
-	if (!shapes.size())
-	{
-		return { { .0, .0 }, .0, .0 };
-	}
-
+std::optional<Rect> CalcCompositeFrame(const std::vector<std::shared_ptr<IShape>>& shapes)
+{
 	auto beginIt = shapes.begin();
-	Rect resultRect = (*beginIt)->GetFrame();
+	std::optional<Rect> resultRect = (*beginIt)->GetFrame();
 
 	for (++beginIt; beginIt != shapes.end(); ++beginIt)
 	{
-		Rect frame = (*beginIt)->GetFrame();
-		resultRect.leftTop.x = std::min(resultRect.leftTop.x, frame.leftTop.x);
-		resultRect.leftTop.y = std::min(resultRect.leftTop.y, frame.leftTop.y);
+		std::optional<Rect> frame = (*beginIt)->GetFrame();
+		if (!resultRect)
+		{
+			resultRect = frame;
+		}
+		else if (frame)
+		{
+			resultRect.value().leftTop.x = std::min(resultRect.value().leftTop.x, frame.value().leftTop.x);
+			resultRect.value().leftTop.y = std::min(resultRect.value().leftTop.y, frame.value().leftTop.y);
 
-		resultRect.width = std::max(resultRect.width, frame.width);
-		resultRect.height = std::max(resultRect.height, frame.height);
+			resultRect.value().width = std::max(resultRect.value().width, frame.value().width);
+			resultRect.value().height = std::max(resultRect.value().height, frame.value().height);
+		}
 	}
 
 	return resultRect;
@@ -77,6 +81,7 @@ std::vector<std::shared_ptr<ILineStyle>> GetLineStyleArr(const std::vector<std::
 
 	return resultArr;
 }
+} // namespace
 
 CShapeGroup::CShapeGroup(const std::vector<std::shared_ptr<IShape>>& shapes)
 	: m_shapes(shapes)
@@ -94,14 +99,14 @@ void CShapeGroup::Draw(ICanvas& canvas)
 	}
 }
 
-Rect CShapeGroup::GetFrame()
+std::optional<Rect> CShapeGroup::GetFrame()
 {
 	return CalcCompositeFrame(m_shapes);
 }
 
 void CShapeGroup::SetFrame(const Rect& rect)
 {
-	Rect oldRect = GetFrame();
+	std::optional<Rect> oldRect = GetFrame();
 	for (auto& shape : m_shapes)
 	{
 		Rect newShapeRect = CalcChildFrame(oldRect, rect, shape->GetFrame());

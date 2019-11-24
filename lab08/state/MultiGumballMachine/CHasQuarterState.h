@@ -3,12 +3,12 @@
 #include "IState.h"
 #include "IMultiGumballMachine.h"
 
-class CHasQuartersState : public IState
+class CHasQuarterState : public IState
 {
 public:
 	const size_t MAX_QUARTERS_COUNT = 5u;
 
-	CHasQuartersState(IMultiGumballMachine& gumballMachine)
+	CHasQuarterState(IMultiGumballMachine& gumballMachine)
 		:m_gumballMachine(gumballMachine)
 	{
 	}

@@ -14,13 +14,13 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Header Files\StateGumballMachine">
-      <UniqueIdentifier>{1b81b4c3-ddbd-4f2b-84f1-80947cf07000}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\NaiveGumballMachine">
-      <UniqueIdentifier>{6af78220-8c15-4cf6-8a1a-81a0f1fb3e0f}</UniqueIdentifier>
+      <UniqueIdentifier>{2ab2142c-f8da-45a1-a3f4-b52c19fa55a7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\StateGumballMachine\State">
-      <UniqueIdentifier>{b214600a-93f9-4d21-868b-dd4c26376382}</UniqueIdentifier>
+      <UniqueIdentifier>{0c5493d0-7686-42d9-b9cc-86345ed400b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GumballMachineMenu">
+      <UniqueIdentifier>{b12e3254-1632-4ee3-abdd-b3c84ca7b806}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,34 +30,58 @@
     <ClCompile Include="pch.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="CRefillGumballMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CCommandMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CGumballMachineMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IState.h">
-      <Filter>Header Files\StateGumballMachine\State</Filter>
-    </ClInclude>
     <ClInclude Include="IGumballMachine.h">
       <Filter>Header Files\StateGumballMachine</Filter>
     </ClInclude>
-    <ClInclude Include="CSoldState.h">
+    <ClInclude Include="IMultiGumballMachine.h">
+      <Filter>Header Files\StateGumballMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="IState.h">
       <Filter>Header Files\StateGumballMachine\State</Filter>
     </ClInclude>
-    <ClInclude Include="CSoldOutState.h">
+    <ClInclude Include="IRefilIState.h">
       <Filter>Header Files\StateGumballMachine\State</Filter>
     </ClInclude>
     <ClInclude Include="CHasQuarterState.h">
       <Filter>Header Files\StateGumballMachine\State</Filter>
     </ClInclude>
+    <ClInclude Include="CMaxQuarterCountState.h">
+      <Filter>Header Files\StateGumballMachine\State</Filter>
+    </ClInclude>
     <ClInclude Include="CNoQuarterState.h">
       <Filter>Header Files\StateGumballMachine\State</Filter>
     </ClInclude>
-    <ClInclude Include="CGumballMachine.h">
+    <ClInclude Include="CSoldOutState.h">
+      <Filter>Header Files\StateGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoldState.h">
+      <Filter>Header Files\StateGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="IRefillGumballMachine.h">
       <Filter>Header Files\StateGumballMachine</Filter>
     </ClInclude>
-    <ClInclude Include="CNaiveGumbalMachine.h">
-      <Filter>Header Files\NaiveGumballMachine</Filter>
+    <ClInclude Include="CRefillGumballMachine.h">
+      <Filter>Header Files\StateGumballMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="CCommandMenu.h">
+      <Filter>Header Files\GumballMachineMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="CGumballMachineMenu.h">
+      <Filter>Header Files\GumballMachineMenu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

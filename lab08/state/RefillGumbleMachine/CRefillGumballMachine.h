@@ -1,15 +1,15 @@
 #pragma once
 #include "pch.h"
 #include "CMaxQuarterCountState.h"
-#include "CHasQuartersState.h"
-#include "CMultiNoQuarterState.h"
+#include "CHasQuarterState.h"
+#include "CNoQuarterState.h"
 #include "CSoldOutState.h"
-#include "CSoldOneState.h"
+#include "CSoldState.h"
 
-class CMultiGumballMachine : private IMultiGumballMachine
+class CRefillGumballMachine : private IRefillGumballMachine
 {
 public:
-	CMultiGumballMachine(unsigned numBalls)
+	CRefillGumballMachine(size_t numBalls)
 		: m_count(numBalls)
 	{
 
@@ -39,7 +39,12 @@ public:
 		m_currentState->Dispense();
 	}
 
-	std::string ToString()const
+	void Refill(size_t numBalls)
+	{
+		m_currentState->Refill(numBalls);
+	}
+
+	std::string ToString() const
 	{
 		auto fmt = boost::format(R"(
 Inventory: %1% gumballs, %2% quarters 
@@ -47,13 +52,14 @@ Machine is %3%
 )");
 		return (fmt % m_count % m_quarterCount % m_currentState->ToString()).str();
 	}
+
 private:
-	unsigned GetBallCount() const override
+	size_t GetBallCount() const override
 	{
 		return m_count;
 	}
 
-	virtual void ReleaseBall() override
+	void ReleaseBall() override
 	{
 		if (m_count != 0)
 		{
@@ -69,7 +75,7 @@ private:
 
 	void SetNoQuarterState() override
 	{
-		m_currentState.reset(new CMultiNoQuarterState(*this));
+		m_currentState.reset(new CNoQuarterState(*this));
 	}
 
 	void SetSoldState() override
@@ -79,21 +85,21 @@ private:
 
 	void SetHasQuarterState() override
 	{
-		m_currentState.reset(new CHasQuartersState(*this));
+		m_currentState.reset(new CHasQuarterState(*this));
 	}
 
-	virtual void SetMaxQuarterCountState() override
+	void SetMaxQuarterCountState() override
 	{
 		m_currentState.reset(new CMaxQuarterCountState(*this));
 	}
 
-	virtual void EjectQuarters() override
+	void EjectQuarters() override
 	{
 		std::cout << m_quarterCount << " quarters comes rolling out the slot...\n";
 		m_quarterCount = 0;
 	}
 
-	virtual void RemoveQuarter() override
+	void RemoveQuarter() override
 	{
 		if (m_quarterCount)
 		{
@@ -101,19 +107,24 @@ private:
 		}
 	}
 
-	virtual void AddQuarter() override
+	void AddQuarter() override
 	{
 		++m_quarterCount;
 	}
 
-	virtual size_t GetQuarterCount() const override
+	size_t GetQuarterCount() const override
 	{
 		return m_quarterCount;
 	}
 
+	void AddBalls(size_t ballsCount) override
+	{
+		++m_count;
+		std::cout << "Filled with " << ballsCount << " balls\n";
+	}
+
 private:
-	unsigned m_count = 0;
-	std::unique_ptr<IState> m_currentState;
+	size_t m_count = 0u;
+	std::unique_ptr<IRefilIState> m_currentState;
 	size_t m_quarterCount = 0u;
 };
-

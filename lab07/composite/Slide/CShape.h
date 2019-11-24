@@ -5,10 +5,10 @@
 class CShape : public IShape
 {
 public:
-	CShape(const Rect& rect, std::shared_ptr<IStyle> fillStyle, std::shared_ptr<ILineStyle> lineStyle);
+	CShape(const Rect& rect, std::unique_ptr<IStyle> fillStyle, std::unique_ptr<ILineStyle> lineStyle);
 	~CShape() = default;
 
-	virtual Rect GetFrame() override;
+	virtual std::optional<Rect> GetFrame() override;
 	virtual void SetFrame(const Rect& rect) override;
 
 	virtual const std::shared_ptr<ILineStyle> GetOutlineStyle() override;

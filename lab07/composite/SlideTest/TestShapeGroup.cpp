@@ -13,7 +13,7 @@ SCENARIO("Group shape can be created and resized")
 	GIVEN("A group shape with 1 shape")
 	{
 		Point p1{ 10.0, 6.0 };
-		auto shape = make_shared<CRectangleShape>(Rect{ p1, 180.0, 9.0 }, make_shared<CStyle>(), make_shared<CLineStyle>());
+		auto shape = make_shared<CRectangleShape>(Rect{ p1, 180.0, 9.0 }, make_unique<CStyle>(), make_unique<CLineStyle>());
 		CShapeGroup sg({ shape });
 
 		RequirePointEquality(sg.GetFrame().leftTop, { 10.0, 6.0 });
@@ -34,9 +34,9 @@ SCENARIO("Group shape can be created and resized")
 
 	GIVEN("A group shape with mulltiple shape")
 	{
-		auto shape1 = make_shared<CRectangleShape>(Rect{ Point{ 1.0, 2.0 }, 180.0, 18.0 }, make_shared<CStyle>(), make_shared<CLineStyle>());
-		auto shape2 = make_shared<CRectangleShape>(Rect{ Point{ .0, .0 }, .0, .0 }, make_shared<CStyle>(), make_shared<CLineStyle>());
-		auto shape3 = make_shared<CRectangleShape>(Rect{ Point{ 3.0, 6.0 }, 360.0, 9.0 }, make_shared<CStyle>(), make_shared<CLineStyle>());
+		auto shape1 = make_shared<CRectangleShape>(Rect{ Point{ 1.0, 2.0 }, 180.0, 18.0 }, make_unique<CStyle>(), make_unique<CLineStyle>());
+		auto shape2 = make_shared<CRectangleShape>(Rect{ Point{ .0, .0 }, .0, .0 }, make_unique<CStyle>(), make_unique<CLineStyle>());
+		auto shape3 = make_shared<CRectangleShape>(Rect{ Point{ 3.0, 6.0 }, 360.0, 9.0 }, make_unique<CStyle>(), make_unique<CLineStyle>());
 		CShapeGroup sg({ shape1, shape2, shape3 });
 
 		RequirePointEquality(sg.GetFrame().leftTop, { .0, .0 });
@@ -99,9 +99,9 @@ SCENARIO("Shape group can be drawn")
 
 		AND_GIVEN("filled shape")
 		{
-			auto shape1 = make_shared<CRectangleShape>(Rect{ Point{ 1.0, 2.0 }, 180.0, 18.0 }, make_shared<CStyle>(0xFF00FF0F), make_shared<CLineStyle>(0xFFF000F0, 1.3));
-			auto shape2 = make_shared<CRectangleShape>(Rect{ Point{ .0, .0 }, .0, .0 }, make_shared<CStyle>(0x00FF00FF), make_shared<CLineStyle>(0xF0F0F0F0, 1.4));
-			auto shape3 = make_shared<CRectangleShape>(Rect{ Point{ 3.0, 6.0 }, 360.0, 9.0 }, make_shared<CStyle>(0x00000000), make_shared<CLineStyle>(0x00FF000F, 113.0));
+			auto shape1 = make_shared<CRectangleShape>(Rect{ Point{ 1.0, 2.0 }, 180.0, 18.0 }, make_unique<CStyle>(0xFF00FF0F), make_unique<CLineStyle>(0xFFF000F0, 1.3));
+			auto shape2 = make_shared<CRectangleShape>(Rect{ Point{ .0, .0 }, .0, .0 }, make_unique<CStyle>(0x00FF00FF), make_unique<CLineStyle>(0xF0F0F0F0, 1.4));
+			auto shape3 = make_shared<CRectangleShape>(Rect{ Point{ 3.0, 6.0 }, 360.0, 9.0 }, make_unique<CStyle>(0x00000000), make_unique<CLineStyle>(0x00FF000F, 113.0));
 			CShapeGroup sg({ shape1, shape2, shape3 });
 
 			WHEN("call shape draw")

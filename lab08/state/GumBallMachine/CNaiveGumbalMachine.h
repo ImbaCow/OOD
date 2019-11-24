@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 
-class CNaiveGumballMachine
+class CMultiNaiveGumballMachine
 {
 public:
 	enum class State
@@ -12,7 +12,7 @@ public:
 		Sold,			// Монетка выдана
 	};
 
-	CNaiveGumballMachine(unsigned count)
+	CMultiNaiveGumballMachine(unsigned count)
 		: m_count(count)
 		, m_state(count > 0 ? State::NoQuarter : State::SoldOut)
 	{

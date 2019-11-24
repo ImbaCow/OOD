@@ -14,13 +14,13 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Header Files\StateGumballMachine">
-      <UniqueIdentifier>{1b81b4c3-ddbd-4f2b-84f1-80947cf07000}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\NaiveGumballMachine">
-      <UniqueIdentifier>{6af78220-8c15-4cf6-8a1a-81a0f1fb3e0f}</UniqueIdentifier>
+      <UniqueIdentifier>{30222867-011d-46c8-9e92-353134197d8b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\StateGumballMachine\State">
-      <UniqueIdentifier>{b214600a-93f9-4d21-868b-dd4c26376382}</UniqueIdentifier>
+      <UniqueIdentifier>{9af49d10-4164-4ad9-b27d-efb1d294ad8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NaiveGumballMachine">
+      <UniqueIdentifier>{6d0085b5-8243-4cd9-b359-be96d841cad2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -35,17 +35,17 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CMaxQuarterCountState.h">
+      <Filter>Header Files\StateGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="IMultiGumballMachine.h">
+      <Filter>Header Files\StateGumballMachine</Filter>
+    </ClInclude>
     <ClInclude Include="IState.h">
       <Filter>Header Files\StateGumballMachine\State</Filter>
     </ClInclude>
     <ClInclude Include="IGumballMachine.h">
       <Filter>Header Files\StateGumballMachine</Filter>
-    </ClInclude>
-    <ClInclude Include="CSoldState.h">
-      <Filter>Header Files\StateGumballMachine\State</Filter>
-    </ClInclude>
-    <ClInclude Include="CSoldOutState.h">
-      <Filter>Header Files\StateGumballMachine\State</Filter>
     </ClInclude>
     <ClInclude Include="CHasQuarterState.h">
       <Filter>Header Files\StateGumballMachine\State</Filter>
@@ -53,10 +53,16 @@
     <ClInclude Include="CNoQuarterState.h">
       <Filter>Header Files\StateGumballMachine\State</Filter>
     </ClInclude>
-    <ClInclude Include="CGumballMachine.h">
+    <ClInclude Include="CSoldOutState.h">
+      <Filter>Header Files\StateGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoldState.h">
+      <Filter>Header Files\StateGumballMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CMultiGumballMachine.h">
       <Filter>Header Files\StateGumballMachine</Filter>
     </ClInclude>
-    <ClInclude Include="CNaiveGumbalMachine.h">
+    <ClInclude Include="CMultiNaiveGumballMachine.h">
       <Filter>Header Files\NaiveGumballMachine</Filter>
     </ClInclude>
   </ItemGroup>

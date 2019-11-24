@@ -15,7 +15,7 @@ SCENARIO("Shapes can be drawn")
 		AND_GIVEN("no line style shape")
 		{
 			Point p1{ 10.0, 6.0 };
-			CEllipseShape shape({ p1, 180.0, 9.0 }, make_shared<CStyle>(0xFFFFFFFF), make_shared<CLineStyle>());
+			CEllipseShape shape({ p1, 180.0, 9.0 }, make_unique<CStyle>(0xFFFFFFFF), make_unique<CLineStyle>());
 
 			WHEN("call shape draw")
 			{
@@ -33,7 +33,7 @@ fillEllipse:10.0/6.0;180.0;9.0
 		AND_GIVEN("no fill style shape")
 		{
 			Point p1{ 10.0, 6.0 };
-			CEllipseShape shape({ p1, 180.0, 9.0 }, make_shared<CStyle>(), make_shared<CLineStyle>(0xFFFFFFFF, 1.2));
+			CEllipseShape shape({ p1, 180.0, 9.0 }, make_unique<CStyle>(), make_unique<CLineStyle>(0xFFFFFFFF, 1.2));
 
 			WHEN("call shape draw")
 			{
@@ -52,11 +52,11 @@ ellipse:10.0/6.0;180.0;9.0
 		AND_GIVEN("Enabled fill and line style shape")
 		{
 			Point p1{ 10.0, 6.0 };
-			auto fillStyle = make_shared<CStyle>();
-			auto lineStyle = make_shared<CLineStyle>();
+			auto fillStyle = make_unique<CStyle>();
+			auto lineStyle = make_unique<CLineStyle>();
 			fillStyle->Enable(true);
 			lineStyle->Enable(true);
-			CEllipseShape shape({ p1, 180.0, 9.0 }, fillStyle, lineStyle);
+			CEllipseShape shape({ p1, 180.0, 9.0 }, move(fillStyle), move(lineStyle));
 
 			WHEN("call shape draw")
 			{

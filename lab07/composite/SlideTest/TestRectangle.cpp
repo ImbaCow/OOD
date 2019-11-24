@@ -12,7 +12,7 @@ SCENARIO("Rectangle can be created and resized")
 	GIVEN("A rectangle shape")
 	{
 		Point p1{ 10.0, 6.0 };
-		CRectangleShape shape({ p1, 180.0, 9.0 }, make_shared<CStyle>(), make_shared<CLineStyle>());
+		CRectangleShape shape({ p1, 180.0, 9.0 }, make_unique<CStyle>(), make_unique<CLineStyle>());
 
 		RequirePointEquality(shape.GetFrame().leftTop, { 10.0, 6.0 });
 		RequireDoubleEquality(shape.GetFrame().width, 180.0);
@@ -33,7 +33,7 @@ SCENARIO("Rectangle can be created and resized")
 	GIVEN("A rectangle with 0 size")
 	{
 		Point p1{ .0, .0 };
-		CRectangleShape shape({ p1, .0, .0 }, make_shared<CStyle>(), make_shared<CLineStyle>());
+		CRectangleShape shape({ p1, .0, .0 }, make_unique<CStyle>(), make_unique<CLineStyle>());
 
 		RequirePointEquality(shape.GetFrame().leftTop, { .0, .0 });
 		RequireDoubleEquality(shape.GetFrame().width, .0);
@@ -62,7 +62,7 @@ SCENARIO("Rectangle can be drawn")
 		AND_GIVEN("filled shape")
 		{
 			Point p1{ 10.0, 6.0 };
-			CRectangleShape shape({ p1, 180.0, 9.0 }, make_shared<CStyle>(0xFFFFFFFF), make_shared<CLineStyle>(0xFFFFFFFF, 1.2));
+			CRectangleShape shape({ p1, 180.0, 9.0 }, make_unique<CStyle>(0xFFFFFFFF), make_unique<CLineStyle>(0xFFFFFFFF, 1.2));
 
 			WHEN("call shape draw")
 			{

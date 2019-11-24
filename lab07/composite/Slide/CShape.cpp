@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "CShape.h"
 
-CShape::CShape(const Rect& rect, std::shared_ptr<IStyle> fillStyle, std::shared_ptr<ILineStyle> lineStyle)
+CShape::CShape(const Rect& rect, std::unique_ptr<IStyle> fillStyle, std::unique_ptr<ILineStyle> lineStyle)
 	: m_frame(rect)
-	, m_fillStyle(fillStyle)
-	, m_lineStyle(lineStyle)
+	, m_fillStyle(move(fillStyle))
+	, m_lineStyle(move(lineStyle))
 {
 	if (!(m_fillStyle && m_lineStyle))
 	{

@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "CTriangleShape.h"
 
+namespace
+{
 Rect CalcTriangleFrame(const Point& vertex1, const Point& vertex2, const Point& vertex3)
 {
 	auto xMinMax = std::minmax({ vertex1.x, vertex2.x, vertex3.x });
@@ -16,9 +18,24 @@ Rect CalcTriangleFrame(const Point& vertex1, const Point& vertex2, const Point& 
 		height
 	};
 };
+Point CalcVertex(const Point& oldVertex, const Rect& newRect, const Rect& oldRect)
+{
+	double widthRatio = oldRect.width ? newRect.width / oldRect.width : 0.0;
+	double heightRatio = oldRect.height ? newRect.height / oldRect.height : 0.0;
 
-CTriangleShape::CTriangleShape(const Point& vertex1, const Point& vertex2, const Point& vertex3, std::shared_ptr<IStyle> fillStyle, std::shared_ptr<ILineStyle> lineStyle)
-	: CShape(CalcTriangleFrame(vertex1, vertex2, vertex3), fillStyle, lineStyle)
+	double vertexX = widthRatio * (oldVertex.x - oldRect.leftTop.x) + newRect.leftTop.x;
+	double vertexY = heightRatio * (oldVertex.y - oldRect.leftTop.y) + newRect.leftTop.y;
+
+	return {
+		vertexX,
+		vertexY
+	};
+};
+
+} // namespace
+
+CTriangleShape::CTriangleShape(const Point& vertex1, const Point& vertex2, const Point& vertex3, std::unique_ptr<IStyle> fillStyle, std::unique_ptr<ILineStyle> lineStyle)
+	: CShape(CalcTriangleFrame(vertex1, vertex2, vertex3), move(fillStyle), move(lineStyle))
 	, m_vertex1(vertex1)
 	, m_vertex2(vertex2)
 	, m_vertex3(vertex3)
@@ -39,20 +56,6 @@ Point CTriangleShape::GetVertex3() const
 {
 	return m_vertex3;
 }
-
-Point CalcVertex(const Point& oldVertex, const Rect& newRect, const Rect& oldRect)
-{
-	double widthRatio = oldRect.width ? newRect.width / oldRect.width : 0.0;
-	double heightRatio = oldRect.height ? newRect.height / oldRect.height : 0.0;
-
-	double vertexX = widthRatio * (oldVertex.x - oldRect.leftTop.x) + newRect.leftTop.x;
-	double vertexY = heightRatio * (oldVertex.y - oldRect.leftTop.y) + newRect.leftTop.y;
-
-	return {
-		vertexX,
-		vertexY
-	};
-};
 
 void CTriangleShape::ResizeShape(const Rect& newRect)
 {

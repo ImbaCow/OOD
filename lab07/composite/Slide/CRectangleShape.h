@@ -4,7 +4,7 @@
 class CRectangleShape : public CShape
 {
 public:
-	CRectangleShape(const Rect& rectangleFrame, std::shared_ptr<IStyle> fillStyle, std::shared_ptr<ILineStyle> lineStyle);
+	CRectangleShape(const Rect& rectangleFrame, std::unique_ptr<IStyle> fillStyle, std::unique_ptr<ILineStyle> lineStyle);
 	virtual ~CRectangleShape() = default;
 
 	Point GetLeftTop();

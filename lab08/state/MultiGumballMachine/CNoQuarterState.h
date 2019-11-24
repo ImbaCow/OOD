@@ -3,10 +3,10 @@
 #include "IState.h"
 #include "IMultiGumballMachine.h"
 
-class CMultiNoQuarterState : public IState
+class CNoQuarterState : public IState
 {
 public:
-	CMultiNoQuarterState(IMultiGumballMachine& gumballMachine)
+	CNoQuarterState(IMultiGumballMachine& gumballMachine)
 		: m_gumballMachine(gumballMachine)
 	{}
 

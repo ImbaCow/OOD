@@ -14,7 +14,7 @@ SCENARIO("Triangle can be created and resized")
 		Point p1{ 10.0, 12.0 };
 		Point p2{ 110.0, 15.0 };
 		Point p3{ 190.0, 6.0 };
-		CTriangleShape shape(p1, p2, p3, make_shared<CStyle>(), make_shared<CLineStyle>());
+		CTriangleShape shape(p1, p2, p3, make_unique<CStyle>(), make_unique<CLineStyle>());
 
 		RequirePointEquality(shape.GetFrame().leftTop, { 10.0, 6.0 });
 		RequireDoubleEquality(shape.GetFrame().width, 180.0);
@@ -37,7 +37,7 @@ SCENARIO("Triangle can be created and resized")
 		Point p1{ .0, .0 };
 		Point p2{ .0, .0 };
 		Point p3{ .0, .0 };
-		CTriangleShape shape(p1, p2, p3, make_shared<CStyle>(), make_shared<CLineStyle>());
+		CTriangleShape shape(p1, p2, p3, make_unique<CStyle>(), make_unique<CLineStyle>());
 
 		RequirePointEquality(shape.GetFrame().leftTop, { .0, .0 });
 		RequireDoubleEquality(shape.GetFrame().width, .0);
@@ -68,7 +68,7 @@ SCENARIO("Triangle can be drawn")
 			Point p1{ 10.0, 12.0 };
 			Point p2{ 110.0, 15.0 };
 			Point p3{ 190.0, 6.0 };
-			CTriangleShape shape(p1, p2, p3, make_shared<CStyle>(0xFFFFFFFF), make_shared<CLineStyle>(0xFFFFFFFF, 1.2));
+			CTriangleShape shape(p1, p2, p3, make_unique<CStyle>(0xFFFFFFFF), make_unique<CLineStyle>(0xFFFFFFFF, 1.2));
 
 			WHEN("call shape draw")
 			{

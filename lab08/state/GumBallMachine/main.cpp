@@ -1,48 +1,10 @@
 #include "pch.h"
-#include "CMultiGumballMachine.h"
-#include "CMultiNaiveGumballMachine.h"
-
-void TestStateMachine()
-{
-	CMultiGumballMachine mac(6);
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.EjectQuarter();
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.TurnCrank();
-	mac.TurnCrank();
-	mac.TurnCrank();
-	mac.TurnCrank();
-	mac.TurnCrank();
-	mac.TurnCrank();
-}
-
-void TestNaiveMachine()
-{
-	CMultiNaiveGumballMachine mac(6);
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.EjectQuarter();
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.InsertQuarter();
-	mac.TurnCrank();
-	mac.TurnCrank();
-	mac.TurnCrank();
-	mac.TurnCrank();
-	mac.TurnCrank();
-	mac.TurnCrank();
-}
+#include <algorithm>
+#include <cctype>
+using namespace std;
 
 int main()
 {
-	TestNaiveMachine();
+	string str = "";
+	cout << all_of(str.begin(), str.end(), isdigit);
 }

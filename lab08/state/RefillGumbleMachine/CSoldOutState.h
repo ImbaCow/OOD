@@ -1,12 +1,12 @@
 #pragma once
 #include "pch.h"
-#include "IState.h"
-#include "IMultiGumballMachine.h"
+#include "IRefilIState.h"
+#include "IRefillGumballMachine.h"
 
-class CMultiSoldOutState : public IState
+class CSoldOutState : public IRefilIState
 {
 public:
-	CMultiSoldOutState(IMultiGumballMachine& gumballMachine)
+	CSoldOutState(IRefillGumballMachine& gumballMachine)
 		:m_gumballMachine(gumballMachine)
 	{}
 
@@ -37,6 +37,13 @@ public:
 	{
 		return "sold out";
 	}
+
+	void Refill(size_t ballsCount) override
+	{
+		m_gumballMachine.AddBalls(ballsCount);
+		m_gumballMachine.SetHasQuarterState();
+	}
+
 private:
-	IMultiGumballMachine& m_gumballMachine;
+	IRefillGumballMachine& m_gumballMachine;
 };

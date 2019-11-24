@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{cf793c23-f08f-4364-b64c-2b7250fb1f8c}</ProjectGuid>
+    <ProjectGuid>{4daffe3e-1bb6-4d3f-88f4-a7a8409f7344}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>GumBallMachine</RootNamespace>
+    <RootNamespace>MultiGumballMachine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -92,6 +92,8 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -108,6 +110,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,6 +130,8 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,6 +152,8 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -159,13 +167,15 @@
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CGumballMachine.h" />
     <ClInclude Include="CHasQuarterState.h" />
-    <ClInclude Include="CNaiveGumbalMachine.h" />
+    <ClInclude Include="CMaxQuarterCountState.h" />
+    <ClInclude Include="CMultiGumballMachine.h" />
+    <ClInclude Include="CMultiNaiveGumballMachine.h" />
     <ClInclude Include="CNoQuarterState.h" />
     <ClInclude Include="CSoldOutState.h" />
     <ClInclude Include="CSoldState.h" />
     <ClInclude Include="IGumballMachine.h" />
+    <ClInclude Include="IMultiGumballMachine.h" />
     <ClInclude Include="IState.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>

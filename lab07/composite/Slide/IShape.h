@@ -6,7 +6,7 @@
 class IShape : public IDrawable
 {
 public:
-	virtual Rect GetFrame() = 0;
+	virtual std::optional<Rect> GetFrame() = 0;
 	virtual void SetFrame(const Rect & rect) = 0;
 
 	virtual const std::shared_ptr<ILineStyle> GetOutlineStyle() = 0;

@@ -70,11 +70,11 @@ SCENARIO("Shape line style cannot be nullptr")
 {
 	GIVEN("nullptr style")
 	{
-		shared_ptr<ILineStyle> stylePtr = nullptr;
+		unique_ptr<ILineStyle> stylePtr = nullptr;
 
 		THEN("shape initialization throw error")
 		{
-			CHECK_THROWS_AS(CRectangleShape({ { .0, .0 }, .0, .0 }, make_shared<CStyle>(), stylePtr), std::invalid_argument);
+			CHECK_THROWS_AS(CRectangleShape({ { .0, .0 }, .0, .0 }, make_unique<CStyle>(), move(stylePtr)), std::invalid_argument);
 		}
 	}
 }

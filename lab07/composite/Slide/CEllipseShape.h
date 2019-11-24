@@ -4,7 +4,7 @@
 class CEllipseShape : public CShape
 {
 public:
-	CEllipseShape(const Rect& frame, std::shared_ptr<IStyle> fillStyle, std::shared_ptr<ILineStyle> lineStyle);
+	CEllipseShape(const Rect& frame, std::unique_ptr<IStyle> fillStyle, std::unique_ptr<ILineStyle> lineStyle);
 
 	Point GetLeftTop();
 	double GetWidth();

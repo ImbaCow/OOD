@@ -10,7 +10,7 @@ public:
 
 	virtual void Draw(ICanvas& canvas) override;
 
-	virtual Rect GetFrame() override;
+	virtual std::optional<Rect> GetFrame() override;
 	virtual void SetFrame(const Rect& rect) override;
 
 	virtual const std::shared_ptr<ILineStyle> GetOutlineStyle() override;
@@ -20,7 +20,7 @@ public:
 	virtual const std::shared_ptr<const IStyle> GetFillStyle() const override;
 
 private:
-	Rect m_frame;
+	std::optional<Rect> m_frame;
 	std::vector<std::shared_ptr<IShape>> m_shapes;
 	const std::shared_ptr<IStyle>  m_fillStyle;
 	const std::shared_ptr<ILineStyle> m_lineStyle;
