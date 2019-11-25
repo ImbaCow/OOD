@@ -90,7 +90,7 @@ You need to pay first
 				{
 					REQUIRE(machine.ToString() == R"(
 Inventory: 22 gumballs, 0 quarters
-Machine is waiting for turn of crank or insert of quarter
+Machine is waiting for quarter
 )");
 					REQUIRE(message == R"(Filled with 2 balls
 )");
@@ -121,7 +121,7 @@ Machine is waiting for turn of crank or insert of quarter
 					THEN("has quarter state and ball count increased")
 					{
 						REQUIRE(machine.ToString() == R"(
-Inventory: 22 gumballs, 0 quarters
+Inventory: 22 gumballs, 1 quarters
 Machine is waiting for turn of crank or insert of quarter
 )");
 						REQUIRE(message == R"(Filled with 2 balls
@@ -193,8 +193,8 @@ You inserted another quarter
 							THEN("has max quarter count state and ball count increased")
 							{
 								REQUIRE(machine.ToString() == R"(
-Inventory: 22 gumballs, 0 quarters
-Machine is waiting for turn of crank or insert of quarter
+Inventory: 22 gumballs, 5 quarters
+Machine is waiting for turn of crank with maximum quarters
 )");
 								REQUIRE(message == R"(Filled with 2 balls
 )");
