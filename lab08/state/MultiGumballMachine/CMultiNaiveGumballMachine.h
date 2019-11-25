@@ -87,6 +87,8 @@ public:
 		switch (m_state)
 		{
 		case State::SoldOut:
+			cout << "You turned but there's no gumballs\n";
+			break;
 		case State::NoQuarter:
 			cout << "You turned but there's no quarter\n";
 			break;
@@ -113,11 +115,11 @@ public:
 		std::string state =
 			(m_state == State::SoldOut) ? "sold out" :
 			(m_state == State::NoQuarter) ? "waiting for quarter" :
-			(m_state == State::HasQuarter) ? "waiting for turn of crank with " + std::to_string(m_quarterCount) + " quarters" :
+			(m_state == State::HasQuarter) ? "waiting for turn of crank or insert of quarter" :
 			(m_state == State::MaxQuarterCount) ? "waiting for turn of crank with maximum quarters"
 			: "delivering a gumball";
 		auto fmt = boost::format(R"(
-Inventory: %1% gumballs, %2% quarters 
+Inventory: %1% gumballs, %2% quarters
 Machine is %3%
 )");
 		return (fmt % m_count % m_quarterCount % state).str();

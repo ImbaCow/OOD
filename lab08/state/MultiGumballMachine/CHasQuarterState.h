@@ -6,7 +6,7 @@
 class CHasQuarterState : public IState
 {
 public:
-	const size_t MAX_QUARTERS_COUNT = 5u;
+	const static size_t MAX_QUARTERS_COUNT = 5u;
 
 	CHasQuarterState(IMultiGumballMachine& gumballMachine)
 		:m_gumballMachine(gumballMachine)
@@ -42,7 +42,7 @@ public:
 
 	std::string ToString() const override
 	{
-		return "waiting for turn of crank with " + std::to_string(m_gumballMachine.GetQuarterCount()) + " quarters";
+		return "waiting for turn of crank or insert of quarter";
 	}
 private:
 	IMultiGumballMachine& m_gumballMachine;

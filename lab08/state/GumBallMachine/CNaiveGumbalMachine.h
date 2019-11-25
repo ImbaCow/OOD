@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 
-class CMultiNaiveGumballMachine
+class CNaiveGumballMachine
 {
 public:
 	enum class State
@@ -12,7 +12,7 @@ public:
 		Sold,			// Монетка выдана
 	};
 
-	CMultiNaiveGumballMachine(unsigned count)
+	CNaiveGumballMachine(unsigned count)
 		: m_count(count)
 		, m_state(count > 0 ? State::NoQuarter : State::SoldOut)
 	{
@@ -96,8 +96,6 @@ public:
 			(m_state == State::HasQuarter) ? "waiting for turn of crank"
 			: "delivering a gumball";
 		auto fmt = boost::format(R"(
-Mighty Gumball, Inc.
-C++-enabled Standing Gumball Model #2016
 Inventory: %1% gumball%2%
 Machine is %3%
 )");
@@ -111,7 +109,7 @@ private:
 		switch (m_state)
 		{
 		case State::Sold:
-			cout << "A gumball comes rolling out the slot\n";
+			cout << "A gumball comes rolling out the slot...\n";
 			--m_count;
 			if (m_count == 0)
 			{

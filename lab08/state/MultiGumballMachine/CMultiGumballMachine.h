@@ -42,7 +42,7 @@ public:
 	std::string ToString()const
 	{
 		auto fmt = boost::format(R"(
-Inventory: %1% gumballs, %2% quarters 
+Inventory: %1% gumballs, %2% quarters
 Machine is %3%
 )");
 		return (fmt % m_count % m_quarterCount % m_currentState->ToString()).str();
@@ -53,7 +53,7 @@ private:
 		return m_count;
 	}
 
-	virtual void ReleaseBall() override
+	void ReleaseBall() override
 	{
 		if (m_count != 0)
 		{
@@ -82,18 +82,18 @@ private:
 		m_currentState.reset(new CHasQuarterState(*this));
 	}
 
-	virtual void SetMaxQuarterCountState() override
+	void SetMaxQuarterCountState() override
 	{
 		m_currentState.reset(new CMaxQuarterCountState(*this));
 	}
 
-	virtual void EjectQuarters() override
+	void EjectQuarters() override
 	{
 		std::cout << m_quarterCount << " quarters comes rolling out the slot...\n";
 		m_quarterCount = 0;
 	}
 
-	virtual void RemoveQuarter() override
+	void RemoveQuarter() override
 	{
 		if (m_quarterCount)
 		{
@@ -101,12 +101,12 @@ private:
 		}
 	}
 
-	virtual void AddQuarter() override
+	void AddQuarter() override
 	{
 		++m_quarterCount;
 	}
 
-	virtual size_t GetQuarterCount() const override
+	size_t GetQuarterCount() const override
 	{
 		return m_quarterCount;
 	}

@@ -14,16 +14,16 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Source Files\Test">
-      <UniqueIdentifier>{d66bcebf-8235-41db-b6be-c973955c9f3a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Test\TestStateMachine">
-      <UniqueIdentifier>{a9e4f6eb-68d1-42b6-beb5-ff78d1287e2a}</UniqueIdentifier>
+      <UniqueIdentifier>{10dfb098-f3bc-4f34-8bc1-b3c478eb83d7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Test\TestNaiveMachine">
-      <UniqueIdentifier>{d2495abe-bb72-4800-9a6d-76700be1e60b}</UniqueIdentifier>
+      <UniqueIdentifier>{f890c2b8-6aed-4198-9b1f-d7ba58836e88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Test\TestStateMachine">
+      <UniqueIdentifier>{e356cda5-9df1-4920-9d1a-f34a7cfee21d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Utils">
-      <UniqueIdentifier>{adbbf4bb-8543-4c8c-86c8-90a6636c16ba}</UniqueIdentifier>
+      <UniqueIdentifier>{2eeae8cc-d2e0-4b37-b40d-af90cdbb5d6d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

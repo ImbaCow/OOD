@@ -42,7 +42,7 @@ public:
 
 	std::string ToString() const override
 	{
-		return "waiting for turn of crank with " + std::to_string(m_gumballMachine.GetQuarterCount()) + " quarters";
+		return "waiting for turn of crank or insert of quarter";
 	}
 
 	void Refill(size_t ballsCount) override

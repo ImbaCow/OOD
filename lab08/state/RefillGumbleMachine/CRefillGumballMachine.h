@@ -47,7 +47,7 @@ public:
 	std::string ToString() const
 	{
 		auto fmt = boost::format(R"(
-Inventory: %1% gumballs, %2% quarters 
+Inventory: %1% gumballs, %2% quarters
 Machine is %3%
 )");
 		return (fmt % m_count % m_quarterCount % m_currentState->ToString()).str();
@@ -119,7 +119,7 @@ private:
 
 	void AddBalls(size_t ballsCount) override
 	{
-		++m_count;
+		m_count += ballsCount;
 		std::cout << "Filled with " << ballsCount << " balls\n";
 	}
 

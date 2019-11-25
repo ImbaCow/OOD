@@ -1,6 +1,6 @@
 #pragma once
-#include "CRefillGumballMachine.h"
 #include "CCommandMenu.h"
+#include "CRefillGumballMachine.h"
 
 class CGumballMachineMenu
 {

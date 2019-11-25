@@ -1,11 +1,11 @@
 #include "pch.h"
 #include "catch2/catch.hpp"
-#include "CGumballMachine.h"
+#include "CNaiveGumbalMachine.h"
 #include "CoutRedirect.h"
 
 using namespace std;
 
-string InsertQuarter(CGumballMachine& machine)
+string InsertQuarter(CNaiveGumballMachine& machine)
 {
 	stringstream ss;
 	CoutRedirect buff(ss.rdbuf());
@@ -13,7 +13,7 @@ string InsertQuarter(CGumballMachine& machine)
 
 	return ss.str();
 }
-string EjectQuarter(CGumballMachine& machine)
+string EjectQuarter(CNaiveGumballMachine& machine)
 {
 	stringstream ss;
 	CoutRedirect buff(ss.rdbuf());
@@ -21,7 +21,7 @@ string EjectQuarter(CGumballMachine& machine)
 
 	return ss.str();
 }
-string TurnCrank(CGumballMachine& machine)
+string TurnCrank(CNaiveGumballMachine& machine)
 {
 	stringstream ss;
 	CoutRedirect buff(ss.rdbuf());
@@ -30,11 +30,11 @@ string TurnCrank(CGumballMachine& machine)
 	return ss.str();
 }
 
-SCENARIO("State gumball machine can work")
+SCENARIO("Naive gumball machine can work")
 {
 	GIVEN("new gumball machine")
 	{
-		CGumballMachine machine(20u);
+		CNaiveGumballMachine machine(20u);
 		REQUIRE(machine.ToString() == R"(
 Inventory: 20 gumballs
 Machine is waiting for quarter
@@ -67,7 +67,6 @@ Inventory: 20 gumballs
 Machine is waiting for quarter
 )");
 					REQUIRE(message == R"(You turned but there's no quarter
-You need to pay first
 )");
 				}
 			}
@@ -140,7 +139,7 @@ A gumball comes rolling out the slot...
 	}
 	GIVEN("new gumball machine with 0 ball")
 	{
-		CGumballMachine machine(0u);
+		CNaiveGumballMachine machine(0u);
 		REQUIRE(machine.ToString() == R"(
 Inventory: 0 gumballs
 Machine is sold out
@@ -189,34 +188,20 @@ Inventory: 0 gumballs
 Machine is sold out
 )");
 					REQUIRE(message == R"(You turned but there's no gumballs
-No gumball dispensed
 )");
 				}
 			}
 		}
-	}
-	GIVEN("new gumball machine with 1 ball an quarter")
-	{
-		CGumballMachine machine(1u);
-		{
-			string message = InsertQuarter(machine);
-		}
 
-		WHEN("turn crank")
+		WHEN("refill machine")
 		{
+			machine.Refill(5u);
+			THEN("state not changed and error message given")
 			{
-				string message = TurnCrank(machine);
-				THEN("sold out message given")
-				{
-					REQUIRE(machine.ToString() == R"(
-Inventory: 0 gumballs
-Machine is sold out
+				REQUIRE(machine.ToString() == R"(
+Inventory: 5 gumballs
+Machine is waiting for quarter
 )");
-					REQUIRE(message == R"(You turned...
-A gumball comes rolling out the slot...
-Oops, out of gumballs
-)");
-				}
 			}
 		}
 	}

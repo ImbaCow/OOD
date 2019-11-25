@@ -30,9 +30,6 @@
     <ClCompile Include="pch.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="CRefillGumballMachine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CCommandMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
