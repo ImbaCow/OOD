@@ -1,9 +1,11 @@
 #pragma once
-#include "CShape.h"
+#include "IShapeGroup.h"
 #include "CStyleGroup.h"
 #include "CLineStyleGroup.h"
 
-class CShapeGroup : public IShape
+class CShapeGroup : 
+	public IShapeGroup
+	, private std::enable_shared_from_this<CShapeGroup>
 {
 public:
 	CShapeGroup(const std::vector<std::shared_ptr<IShape>>& shapes);
@@ -18,6 +20,14 @@ public:
 
 	virtual const std::shared_ptr<IStyle> GetFillStyle() override;
 	virtual const std::shared_ptr<const IStyle> GetFillStyle() const override;
+
+	virtual const std::shared_ptr<IShapeGroup> TryGetGroup() override;
+
+	virtual void AddShape(std::shared_ptr<IShape> shape) override;
+	virtual void RemoveShape(size_t index) override;
+
+	virtual std::shared_ptr<IShape> GetShape(size_t index) const override;
+	virtual size_t GetShapesCount() const override;
 
 private:
 	std::optional<Rect> m_frame;

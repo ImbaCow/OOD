@@ -24,7 +24,7 @@ public:
 		out << content;
 	}
 
-	filesystem::path GetPath()
+	filesystem::path GetPath() const
 	{
 		return m_path;
 	}

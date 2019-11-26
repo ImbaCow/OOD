@@ -90,6 +90,9 @@
     <ClInclude Include="CSvgCanvas.h">
       <Filter>Файлы заголовков\Canvas</Filter>
     </ClInclude>
+    <ClInclude Include="IShapeGroup.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

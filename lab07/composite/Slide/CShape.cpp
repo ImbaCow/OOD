@@ -12,7 +12,7 @@ CShape::CShape(const Rect& rect, std::unique_ptr<IStyle> fillStyle, std::unique_
 	}
 }
 
-Rect CShape::GetFrame()
+std::optional<Rect> CShape::GetFrame()
 {
 	return m_frame;
 }
@@ -60,4 +60,9 @@ void CShape::Draw(ICanvas& canvas)
 		canvas.SetLineSize(lineStyleSize.has_value() ? lineStyleSize.value() : 0.0);
 		DrawColoredLine(canvas);
 	}
+}
+
+const std::shared_ptr<IShapeGroup> CShape::TryGetGroup()
+{
+	return nullptr;
 }

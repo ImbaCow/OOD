@@ -5,10 +5,9 @@ namespace
 {
 std::optional<Rect> CalcCompositeFrame(const std::vector<std::shared_ptr<IShape>>& shapes)
 {
-	auto beginIt = shapes.begin();
-	std::optional<Rect> resultRect = (*beginIt)->GetFrame();
+	std::optional<Rect> resultRect = std::nullopt;
 
-	for (++beginIt; beginIt != shapes.end(); ++beginIt)
+	for (auto beginIt = shapes.begin(); beginIt != shapes.end(); ++beginIt)
 	{
 		std::optional<Rect> frame = (*beginIt)->GetFrame();
 		if (!resultRect)
@@ -109,8 +108,11 @@ void CShapeGroup::SetFrame(const Rect& rect)
 	std::optional<Rect> oldRect = GetFrame();
 	for (auto& shape : m_shapes)
 	{
-		Rect newShapeRect = CalcChildFrame(oldRect, rect, shape->GetFrame());
-		shape->SetFrame(newShapeRect);
+		if (std::optional<Rect> childRect = shape->GetFrame())
+		{
+			Rect newShapeRect = CalcChildFrame(oldRect.value(), rect, childRect.value());
+			shape->SetFrame(newShapeRect);
+		}
 	}
 }
 
@@ -132,4 +134,29 @@ const std::shared_ptr<IStyle> CShapeGroup::GetFillStyle()
 const std::shared_ptr<const IStyle> CShapeGroup::GetFillStyle() const
 {
 	return m_fillStyle;
+}
+
+const std::shared_ptr<IShapeGroup> CShapeGroup::TryGetGroup()
+{
+	return shared_from_this();
+}
+
+void CShapeGroup::AddShape(std::shared_ptr<IShape> shape)
+{
+	m_shapes.push_back(shape);
+}
+
+void CShapeGroup::RemoveShape(size_t index)
+{
+	m_shapes.erase(m_shapes.begin() + index);
+}
+
+std::shared_ptr<IShape> CShapeGroup::GetShape(size_t index) const
+{
+	return m_shapes[index];
+}
+
+size_t CShapeGroup::GetShapesCount() const
+{
+	return m_shapes.size();
 }

@@ -51,16 +51,10 @@
     <ClCompile Include="..\Slide\CShape.cpp">
       <Filter>Source Files\Inc</Filter>
     </ClCompile>
-    <ClCompile Include="..\Slide\CShapeGroup.cpp">
-      <Filter>Source Files\Inc</Filter>
-    </ClCompile>
     <ClCompile Include="..\Slide\CStyle.cpp">
       <Filter>Source Files\Inc</Filter>
     </ClCompile>
     <ClCompile Include="..\Slide\CStyleGroup.cpp">
-      <Filter>Source Files\Inc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Slide\CSvgCanvas.cpp">
       <Filter>Source Files\Inc</Filter>
     </ClCompile>
     <ClCompile Include="..\Slide\CTriangleShape.cpp">
@@ -93,15 +87,15 @@
     <ClCompile Include="TestDraw.cpp">
       <Filter>Source Files\Test\TestDraw</Filter>
     </ClCompile>
+    <ClCompile Include="..\Slide\CShapeGroup.cpp">
+      <Filter>Source Files\Inc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TestCanvas.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="catch2\catch.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

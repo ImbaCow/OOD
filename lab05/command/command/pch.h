@@ -9,6 +9,7 @@
 #include <memory>
 #include <functional>
 #include <filesystem>
+#include <algorithm>
 #include <cctype>
 #include <random>
 #include <boost/lexical_cast.hpp>

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CEditor.h"
+#include <algorithm>
 
 std::optional<size_t> ParsePos(std::istream& input)
 {
@@ -7,7 +8,9 @@ std::optional<size_t> ParsePos(std::istream& input)
 	input >> pos;
 	std::optional<size_t> posOpt = std::nullopt;
 
-	if (std::all_of(pos.begin(), pos.end(), std::isdigit))
+	if (std::all_of(pos.begin(), pos.end(), [](char ch) {
+			return std::isdigit(ch);
+		}))
 	{
 		try
 		{

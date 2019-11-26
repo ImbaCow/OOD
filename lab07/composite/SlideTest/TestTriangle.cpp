@@ -16,9 +16,9 @@ SCENARIO("Triangle can be created and resized")
 		Point p3{ 190.0, 6.0 };
 		CTriangleShape shape(p1, p2, p3, make_unique<CStyle>(), make_unique<CLineStyle>());
 
-		RequirePointEquality(shape.GetFrame().leftTop, { 10.0, 6.0 });
-		RequireDoubleEquality(shape.GetFrame().width, 180.0);
-		RequireDoubleEquality(shape.GetFrame().height, 9.0);
+		RequirePointEquality(shape.GetFrame().value().leftTop, { 10.0, 6.0 });
+		RequireDoubleEquality(shape.GetFrame().value().width, 180.0);
+		RequireDoubleEquality(shape.GetFrame().value().height, 9.0);
 
 		WHEN("offset is moved and shape is resized")
 		{
@@ -39,9 +39,9 @@ SCENARIO("Triangle can be created and resized")
 		Point p3{ .0, .0 };
 		CTriangleShape shape(p1, p2, p3, make_unique<CStyle>(), make_unique<CLineStyle>());
 
-		RequirePointEquality(shape.GetFrame().leftTop, { .0, .0 });
-		RequireDoubleEquality(shape.GetFrame().width, .0);
-		RequireDoubleEquality(shape.GetFrame().height, .0);
+		RequirePointEquality(shape.GetFrame().value().leftTop, { .0, .0 });
+		RequireDoubleEquality(shape.GetFrame().value().width, .0);
+		RequireDoubleEquality(shape.GetFrame().value().height, .0);
 
 		WHEN("offset is moved and shape is not resized")
 		{

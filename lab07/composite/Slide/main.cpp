@@ -28,11 +28,11 @@ void Test1()
 	ellipse->GetOutlineStyle()->SetColor(0x000000FF);
 	ellipse->GetOutlineStyle()->SetLineSize(3.0);
 
-	auto sg = make_shared<CShapeGroup>(std::vector<std::shared_ptr<IShape>>{ triangle1,
-		ellipse });
+	auto sg = make_shared<CShapeGroup>(std::vector<std::shared_ptr<IShape>>{ triangle1 });
 	sg->GetFillStyle()->Enable(false);
 	sg->GetOutlineStyle()->SetColor(0x00FF00FF);
 	sg->GetOutlineStyle()->SetLineSize(2.0);
+	sg->AddShape(ellipse);
 
 	auto doc = std::make_shared<svg::Document>("test.svg", svg::Layout(svg::Dimensions(200, 200), svg::Layout::TopLeft));
 	CSvgCanvas canvas(doc);

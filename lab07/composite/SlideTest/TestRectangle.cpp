@@ -14,9 +14,9 @@ SCENARIO("Rectangle can be created and resized")
 		Point p1{ 10.0, 6.0 };
 		CRectangleShape shape({ p1, 180.0, 9.0 }, make_unique<CStyle>(), make_unique<CLineStyle>());
 
-		RequirePointEquality(shape.GetFrame().leftTop, { 10.0, 6.0 });
-		RequireDoubleEquality(shape.GetFrame().width, 180.0);
-		RequireDoubleEquality(shape.GetFrame().height, 9.0);
+		RequirePointEquality(shape.GetFrame().value().leftTop, { 10.0, 6.0 });
+		RequireDoubleEquality(shape.GetFrame().value().width, 180.0);
+		RequireDoubleEquality(shape.GetFrame().value().height, 9.0);
 
 		WHEN("offset is moved and shape is resized")
 		{
@@ -35,9 +35,9 @@ SCENARIO("Rectangle can be created and resized")
 		Point p1{ .0, .0 };
 		CRectangleShape shape({ p1, .0, .0 }, make_unique<CStyle>(), make_unique<CLineStyle>());
 
-		RequirePointEquality(shape.GetFrame().leftTop, { .0, .0 });
-		RequireDoubleEquality(shape.GetFrame().width, .0);
-		RequireDoubleEquality(shape.GetFrame().height, .0);
+		RequirePointEquality(shape.GetFrame().value().leftTop, { .0, .0 });
+		RequireDoubleEquality(shape.GetFrame().value().width, .0);
+		RequireDoubleEquality(shape.GetFrame().value().height, .0);
 
 		WHEN("offset is moved and shape is resized")
 		{

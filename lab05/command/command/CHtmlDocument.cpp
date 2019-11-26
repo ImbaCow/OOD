@@ -125,7 +125,7 @@ std::string ImageToHtml(std::shared_ptr<const IImage> imagePtr, const Path& rela
 	return "<img src=\"" + relativeImagePath.string() + "\" width=\"" + std::to_string(imagePtr->GetWidth()) + "\" height=\"" + std::to_string(imagePtr->GetHeight()) + "\">";
 }
 
-std::string ExcapeHtml(const std::string& text)
+std::string EscapeHtml(const std::string& text)
 {
 	std::string escapedText;
 	escapedText.reserve(text.size());
@@ -159,12 +159,12 @@ std::string ExcapeHtml(const std::string& text)
 
 std::string ParagrapgToHtml(std::shared_ptr<const IParagraph> paragraphPtr)
 {
-	return "<p>" + ExcapeHtml(paragraphPtr->GetText()) + "</p>";
+	return "<p>" + EscapeHtml(paragraphPtr->GetText()) + "</p>";
 }
 
 std::string OpenHtml(const std::string& title)
 {
-	std::string titleTag = title.size() != 0 ? "<title>" + ExcapeHtml(title) + "</title>" : "";
+	std::string titleTag = title.size() != 0 ? "<title>" + EscapeHtml(title) + "</title>" : "";
 	return "<html><head>" + titleTag + "</head><body>";
 }
 

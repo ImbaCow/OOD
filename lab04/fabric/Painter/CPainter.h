@@ -5,7 +5,5 @@
 class CPainter
 {
 public:
-	virtual ~CPainter() = default;
-
-	virtual void DrawPicture(const CPictureDraft& draft, ICanvas& canvas) const;
+	void DrawPicture(const CPictureDraft& draft, ICanvas& canvas) const;
 };

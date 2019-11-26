@@ -3,6 +3,8 @@
 #include "IStyle.h"
 #include "ILineStyle.h"
 
+class IShapeGroup;
+
 class IShape : public IDrawable
 {
 public:
@@ -14,6 +16,8 @@ public:
 
 	virtual const std::shared_ptr<IStyle> GetFillStyle() = 0;
 	virtual const std::shared_ptr<const IStyle> GetFillStyle() const = 0;
+
+	virtual const std::shared_ptr<IShapeGroup> TryGetGroup() = 0;
 
 	virtual ~IShape() = default;
 };

@@ -16,9 +16,9 @@ SCENARIO("Group shape can be created and resized")
 		auto shape = make_shared<CRectangleShape>(Rect{ p1, 180.0, 9.0 }, make_unique<CStyle>(), make_unique<CLineStyle>());
 		CShapeGroup sg({ shape });
 
-		RequirePointEquality(sg.GetFrame().leftTop, { 10.0, 6.0 });
-		RequireDoubleEquality(sg.GetFrame().width, 180.0);
-		RequireDoubleEquality(sg.GetFrame().height, 9.0);
+		RequirePointEquality(sg.GetFrame().value().leftTop, { 10.0, 6.0 });
+		RequireDoubleEquality(sg.GetFrame().value().width, 180.0);
+		RequireDoubleEquality(sg.GetFrame().value().height, 9.0);
 
 		WHEN("shape group is moved and resized")
 		{
@@ -39,9 +39,9 @@ SCENARIO("Group shape can be created and resized")
 		auto shape3 = make_shared<CRectangleShape>(Rect{ Point{ 3.0, 6.0 }, 360.0, 9.0 }, make_unique<CStyle>(), make_unique<CLineStyle>());
 		CShapeGroup sg({ shape1, shape2, shape3 });
 
-		RequirePointEquality(sg.GetFrame().leftTop, { .0, .0 });
-		RequireDoubleEquality(sg.GetFrame().width, 360.0);
-		RequireDoubleEquality(sg.GetFrame().height, 18.0);
+		RequirePointEquality(sg.GetFrame().value().leftTop, { .0, .0 });
+		RequireDoubleEquality(sg.GetFrame().value().width, 360.0);
+		RequireDoubleEquality(sg.GetFrame().value().height, 18.0);
 
 		WHEN("shape group is moved and resized")
 		{
@@ -73,18 +73,14 @@ SCENARIO("Group shape can be created and resized")
 	{
 		CShapeGroup sg({});
 
-		RequirePointEquality(sg.GetFrame().leftTop, { .0, .0 });
-		RequireDoubleEquality(sg.GetFrame().width, .0);
-		RequireDoubleEquality(sg.GetFrame().height, .0);
+		CHECK(!sg.GetFrame().has_value());
 
 		WHEN("try to move and resize")
 		{
 			sg.SetFrame({ { 150.0, 96.0 }, 90.0, 18.0 });
 			THEN("not moved and not resized")
 			{
-				CheckPointEquality(sg.GetFrame().leftTop, { .0, .0 });
-				CheckDoubleEquality(sg.GetFrame().width, .0);
-				CheckDoubleEquality(sg.GetFrame().height, .0);
+				CHECK(!sg.GetFrame().has_value());
 			}
 		}
 	}

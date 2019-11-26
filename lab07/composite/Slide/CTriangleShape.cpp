@@ -59,7 +59,7 @@ Point CTriangleShape::GetVertex3() const
 
 void CTriangleShape::ResizeShape(const Rect& newRect)
 {
-	Rect oldRect = GetFrame();
+	Rect oldRect = GetFrame().value();
 	m_vertex1 = CalcVertex(m_vertex1, newRect, oldRect);
 	m_vertex2 = CalcVertex(m_vertex2, newRect, oldRect);
 	m_vertex3 = CalcVertex(m_vertex3, newRect, oldRect);

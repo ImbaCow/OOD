@@ -19,6 +19,8 @@ public:
 
 	virtual void Draw(ICanvas& canvas) override;
 
+	virtual const std::shared_ptr<IShapeGroup> TryGetGroup() override;
+
 protected:
 	virtual void ResizeShape(const Rect& newRect) = 0;
 	virtual void DrawColoredLine(ICanvas& canvas) = 0;
