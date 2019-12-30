@@ -1,0 +1,54 @@
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\HtmlEditorTest\pch.cpp
+RES: c
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\HtmlEditorTest\main.cpp
+RES: ____________________cc_cccc__ccc_____cccccc__ccc__cccc_c_c___c_____c_cc__ccc__cccc__c__c_c_cccc_cc_ccc_c_cccc_ccccccc_ccc_cccc_ccccccccccc_cccccc_cccccccccccc_cccccc_ccccc_cccccccccc_cccccc_ccc_ccccccccc_cccccccc_ccc_ccccccc_cccccccccccc_ccc_cc_cccc_ccccccccccccc_ccccccc_ccccccc_ccccccccc_cc_cc_cccccc_ccccc_cccccccccccc_cccccccc_ccccc_cccccccccc_ccccc_cc_ccccccc_cc_cc_ccc_cccccc_cccc_ccc_cccc_ccccc_ccccccccc_ccccccccc_cccccccccccc_ccc____cccccccccc_cccccccccc_ccccc_c_ccccccpc_ccccccccc_cccccccpcc_cccccccccc_cccccccccc_ccc_c________ccu_uu__ccc_cccccccc_cccccc_cccc_ccccccccc_ccc_cccccc_ccccccccccccccc_cccccc_ccccccccccccc_cccccccccc_cccc_ccccccccccccccc_ccc_c_c___________c_ccccc_cccccccc_cccccccc_cccccccccc_cccccccc_cccc_cccccc_cccccccc_cccccccc_cccccccc_cccccccc_cccc_ccccccc_cccc_cccccc_cccccccc_cccccccc_cccccccc_cccc_cccccc_cccccccc_cccccccc_cccccccc_cccc_cccccc_cccccccc_cccccccc_cccccccc_cccc_cccccc_cccc_cccccc_cccc_c_c
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CResizeImageCommand.cpp
+RES: ____cccc__ccc__ccc__cccc
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CReplaceTextCommand.cpp
+RES: ____cccc__ccc__ccc
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CParagraph.cpp
+RES: _____cccc__ccc__cccc
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CHtmlDocument.cpp
+RES: ___________cccc_cc_cc____ccc_cc_cc_cc__ccc_cc__cccc_cc_cc__ccc__uu_u_uu__cc_c_cc__cccc__ccc__cccc_cc__ccc_cc__ccc_cc__ccc__ccc__cccc_c__cc_cc_cc_cc_cc_c__c_cc__ccc__cccc__ccc__cccc_c_cc_cccc__c_ccc__ccc__ccc__ccc__ccc
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CInsertDocumentItemCommand.cpp
+RES: ____ccccc__cc_c_c_cc__c_c__cc_cc__c_c
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CImage.cpp
+RES: _____cccccc__ccc__ccc__ccc__ccc__uuuu
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CEditor.cpp
+RES: _____cccc_ccc_c_cc__uucc_c__cc__ccccc__ccc__cccc_cc__cc__cc_cu__ccccc__ccc_u_cc_u_cc_cc__uuu_u___u_uu_u__uu__ccc_u__cc__cc_cc__c_c__cc_cc__c_c__ccc_c_c_cc__cc_c_c_ccc_uu__c_cc__cccccccccccccc__ccc
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CCommandMenu.h
+RES: _______________________c___
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CDocumentItem.cpp
+RES: ____cccc__cccc__ccc__ccc
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CDocumentItem.h
+RES: ______________cc_
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CDeleteDocumentItemCommand.cpp
+RES: ____cccc__cc_c_ccc__ccc
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CConstDocumentItem.cpp
+RES: ____ccc__ccc__ccc__ccc
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CConstDocumentItem.h
+RES: ________________cc_
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CCommandMenu.cpp
+RES: ____cccc__ccc__cc_ccc_c_cc__cccc__cc_ccc__ccc__cc_cc_cc_cc__uu_cc
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CCommandHistory.cpp
+RES: ______ccc__ccc__cc_cc_c__cc_cc_c__cc_uuuu__cc_ccc__ccuc_uu__c__c
+PROF: 
+FILE: C:\Users\egory\Documents\OOD\labs\lab05\command\command\CAbstractCommand.cpp
+RES: ____cc_cc_c__cc_cc_c
+PROF: 
